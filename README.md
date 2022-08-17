@@ -94,7 +94,7 @@ or
 
 `/home/HOSTNAME/.steam/steam/steamapps/common/Counter-Strike Global Offensive/csgo/cfg`
 
-In the dad_jokes_cfgs in the json file, replace the text "PUT ONE OF THE TWO PATHS TO THE .cfg FILE HERE" & "PUT THE OTHER PATH HERE" with the paths to your .cfg file, make sure the end of the path is the file name and its extension cfg.
+In the "dad_jokes_cfgs" in the json file, replace the text "PUT ONE OF THE TWO PATHS TO THE .cfg FILE HERE" & "PUT THE OTHER PATH HERE" with the paths to your .cfg file, make sure the end of the path is the file name and its extension cfg.
 
 e.g:
 
@@ -126,7 +126,7 @@ Use same command as below.
 
 ### Linux
 
-Look for shortcuts in the system's search bar or settings, click on the plus icon to add a shortcut, name it whatever you want, give it the combination of keys you want (e.g: alt + \), in the command field type :
+Look for shortcuts in the system's search bar or settings, click on the plus icon to add a shortcut, name it whatever you want, give it the combination of keys you want (e.g: alt + /), in the command field type :
 
 `bundle exec ruby /home/HOSTNAME/dad-jokes-in-valve-games/main.rb`
 
@@ -134,7 +134,7 @@ The path depends on where you cloned the repository and your OS, so adjust accor
 
 # And Done!
 
-Now just use the shortcut if you've made one, or run the command by yourself on gitbash or terminal, then open csgo and enjoy spamming the chat with your jokes!
+Now just use the shortcut if you've made one, or run the command by yourself on gitbash or terminal, then open csgo, or your valve game of choice, and enjoy spamming the chat with your jokes!
 
 # Final Notes
 
@@ -146,6 +146,6 @@ I'm facing an issue on Linux (Ubuntu) where the binds don't apply to the game au
 
 ## A warning
 
-It's better not to change any other settings in the .json file unless you know what you are doing. Currently the script will work, meaning you can use the shortcut or run the command, a maximum of 30 times, sometimes less, this is because sending too many requests to reddit sounds like a bad idea, but yeah you can change the "maximum_requests" value to a higher value if you want to be able to use it more than 30 times.
+It's better not to change any other settings in the .json file unless you know what you are doing. Currently the script will work, meaning you can use the shortcut or run the command, a maximum of 30 times a day (since the last time you ran the script for the first time), sometimes less, this is because sending too many requests to reddit sounds like a bad idea, but yeah you can change the "maximum_requests" value to a higher value if you want to be able to use it more than 30 times.
 
 The good thing is that the top page of reddit's subreddit dadjokes isn't updated often enough for you to use the shortcut many times for a meaningful reason, so you'll just see the same jokes bound to the same keys.
