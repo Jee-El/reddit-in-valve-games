@@ -2,7 +2,13 @@
 
 Automatically get dad jokes from reddit, bind them to keys in a Valve game, share them in the chat with the other players.
 
-# Note
+## Why?
+
+1. I find these jokes the funniest, so I've been enjoying spamming them in the chat for the other players to read & laugh (some find them unfunny, which is fair, but I like making them read them anyways haha).
+
+2. I've lately been doing this manually, copy-pasting jokes and binding them to keys, which would take me quite a bit of time daily and eventually made me lazy to update them, so I thought why not automate the whole thing.
+
+## Notes
 
 These guides are just a few out of plenty, so feel free to use any other guide(s) to get git and ruby installed. (Bundler is optional)
 
@@ -130,8 +136,16 @@ The path depends on where you cloned the repository and your OS, so adjust accor
 
 Now just use the shortcut if you've made one, or run the command by yourself on gitbash or terminal, then open csgo and enjoy spamming the chat with your jokes!
 
-# Final Note
+# Final Notes
+
+## One issue
 
 I'm facing an issue on Linux (Ubuntu) where the binds don't apply to the game automatically, though the .cfg file gets updated, so it's an issue with my OS or the game. If you face the same issue, you can either run `exec dad_jokes` in the console everytime you open the game and everything will work as it should, or bind a key to do that for you :
 
 `bind "f1" "exec dad_jokes"`
+
+## A warning
+
+It's better not to change any other settings in the .json file unless you know what you are doing. Currently the script will work, meaning you can use the shortcut or run the command, a maximum of 30 times, sometimes less, this is because sending too many requests to reddit sounds like a bad idea, but yeah you can change the "maximum_requests" value to a higher value if you want to be able to use it more than 30 times.
+
+The good thing is that the top page of reddit's subreddit dadjokes isn't updated often enough for you to use the shortcut many times for a meaningful reason, so you'll just see the same jokes bound to the same keys.
