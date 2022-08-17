@@ -1,0 +1,10 @@
+{
+	"call_date": null,
+	"has_to_reset_time": false,
+	"total_requests": 0,
+	"dad_jokes_cfgs": [
+		"PUT ONE OF THE TWO PATHS TO THE .cfg FILE HERE",
+		"PUT THE OTHER PATH HERE"
+	],
+	"keys": ["f1", "f2", "f3", "f4", "f5", "f6", "f7", "f8", "f9", "f10"]
+}
