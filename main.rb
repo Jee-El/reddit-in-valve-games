@@ -11,6 +11,7 @@ class DadJokesScraper
     @parsed_json['has_to_reset_time'] = false
 
     @total_requests = @parsed_json['total_requests']
+    @maximum_requests = @parsed_json['maximum_requests']
     @attempts = 0
     @keys = @parsed_json['keys']
     @jokes = []
@@ -28,7 +29,7 @@ class DadJokesScraper
   private
 
   def scrape
-    while @attempts < 5 && @total_requests < 30 && @jokes.empty?
+    while @attempts < 5 && @total_requests < @maximum_requests && @jokes.empty?
       begin
         unparsed_page = URI.open('https://www.reddit.com/r/dadjokes')
         parsed_page = Nokogiri::HTML(unparsed_page)
