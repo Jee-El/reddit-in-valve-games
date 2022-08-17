@@ -138,6 +138,10 @@ The path depends on where you cloned the repository and your OS, so adjust accor
 
 Now just use the shortcut if you've made one, or run the command by yourself on gitbash or terminal, then open csgo, or your valve game of choice, and enjoy spamming the chat with your jokes!
 
+You can type, in the console, this command to see if the binds have been updated :
+
+`key_listboundkeys`
+
 # Final Notes
 
 ## One issue
