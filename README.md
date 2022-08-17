@@ -10,11 +10,13 @@ Automatically get dad jokes from reddit, bind them to keys in a Valve game, shar
 
 ## Notes
 
-These guides are just a few out of plenty, so feel free to use any other guide(s) to get git and ruby installed. (Bundler is optional)
+- Contact me on discord if you face any issues, it's on my github page, or create an issue on this repository.
 
-Also, the linux guides are mainly for Ubuntu and its official flavors.
+- The guides provided are just a few out of plenty, so feel free to use any other guide(s) to get git and ruby installed. (Bundler is optional)
 
-In this guide, we'll use the game Counter Strike Global Offensive, but this should work on any other valve game that has a console, so if you are doing this to another game, just browse/open the folders for your specific game.
+- Also, the linux guides are mainly for Ubuntu and its official flavors.
+
+- In this guide, we'll use the game Counter Strike Global Offensive, but this should work on any other valve game that has a console, so if you are doing this to another game, just browse/open the folders for your specific game.
 
 # Guide on how to use it
 
