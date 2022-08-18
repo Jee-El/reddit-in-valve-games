@@ -83,8 +83,10 @@ class DadJokesScraper
   end
 
   def update_dad_jokes_cfg
-    return puts 'No jokes were returned, so your .cfg file should have the same jokes as before' if @jokes.empty?
-
+    if @jokes.empty?
+      puts 'No jokes were returned so try again. Your .cfg file should have the same jokes as before'
+      return
+    end
     @parsed_json['dad_jokes_cfgs'].each { |cfg| File.write(cfg, (@jokes + ['host_writeconfig']).join("\n")) }
     puts 'New jokes were returned, your .cfg file was updated.'
     puts 'They might be the same jokes as before, try again after a few hours if that\'s the case'
