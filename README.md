@@ -12,9 +12,9 @@ Automatically get dad jokes from reddit, bind them to keys in a Valve game, shar
 
 - Contact me on discord if you face any issues, it's on my github page, or create an issue on this repository.
 
-- The guides provided are just a few out of plenty, so feel free to use any other guide(s) to get git and ruby installed. (Bundler is optional)
+- The guides provided are just a few out of plenty, so feel free to use any other guide(s) to get git, ruby, and bundler installed.
 
-- Also, the linux guides are mainly for Ubuntu and its official flavors.
+- Also, the linux guides are mainly for Ubuntu and its official flavors, but it should be easy to find guides for other distributions.
 
 - In this guide, we'll use the game Counter Strike Global Offensive, but this should work on any other valve game that has a console, so if you are doing this to another game, just browse/open the folders for your specific game.
 
@@ -54,7 +54,7 @@ https://www.theodinproject.com/lessons/ruby-installing-ruby
 
 Feel free to ignore the "Extras" section.
 
-## Install Bundler (Optional)
+## Install Bundler
 
 In your terminal or git bash :
 
@@ -101,6 +101,8 @@ In the "dad_jokes_cfgs" in the json file, replace the text "PUT ONE OF THE TWO P
 e.g:
 
 `/home/HOSTNAME/.steam/steam/steamapps/common/Counter-Strike Global Offensive/csgo/cfg/dad_jokes.cfg`
+
+(On Linux, make sure the path starts with /home/HOSTNAME and not ~/ so it works as it should)
 
 ### Note
 
