@@ -7,8 +7,10 @@ class DadJokesScraper
     unparsed_json = File.read('./config.json')
     @parsed_json = JSON.parse(unparsed_json)
 
-    @parsed_json['call_date'] = Time.new if @parsed_json['has_to_reset_time']
-    @parsed_json['has_to_reset_time'] = false
+    if @parsed_json['has_to_reset_time']
+      @parsed_json['call_date'] = Time.new
+      @parsed_json['has_to_reset_time'] = false
+    end
 
     @total_requests = @parsed_json['total_requests']
     @maximum_requests = @parsed_json['maximum_requests']
@@ -72,9 +74,7 @@ class DadJokesScraper
   end
 
   def reset_requests?
-    format = '%Y-%m-%d %H:%M:%S'
-    latest_call_date = DateTime.strptime(@parsed_json['call_date'], format).to_time
-    Time.new - latest_call_date >= 86_400
+    Time.new - Time.parse(@parsed_json['call_date'].to_s) >= 86_400
   end
 
   def reset_requests

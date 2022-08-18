@@ -146,6 +146,14 @@ You can type, in the console, this command to see if the binds have been updated
 
 # Final Notes
 
+## To stay up to date with the changes/fixes
+
+In the terminal/git bash :
+
+`cd dad-jokes-in-valve-games`
+
+`git pull`
+
 ## One issue
 
 I'm facing an issue on Linux (Ubuntu) where the binds don't apply to the game automatically, though the .cfg file gets updated, so it's an issue with my OS or the game. If you face the same issue, you can either run `exec dad_jokes` in the console everytime you open the game and everything will work as it should, or bind a key to do that for you :
