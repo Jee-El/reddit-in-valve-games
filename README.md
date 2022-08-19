@@ -10,6 +10,8 @@ Automatically get dad jokes from reddit, bind them to keys in a Valve game, shar
 
 ## Notes
 
+- Originally, this was made only for the dadjokes subreddit, but It should work quite well with other text-only subreddits so feel free to try it out!
+
 - Contact me on discord if you face any issues, it's on my github page, or create an issue on this repository.
 
 - The guides provided are just a few out of plenty, so feel free to use any other guide(s) to get git, ruby, and bundler installed.
@@ -168,7 +170,7 @@ Go to the config.json file, the second entry named "subreddit_name" is a templat
 
 1. Copy-paste it
 
-2. Replace "subreddit_name" with the name of the subreddit you want, the _value of_ "url" with the link to the subreddit, and the _value of_ "cfgs" to the paths to a new .cfg file.
+2. Replace "subreddit*name" with the name of the subreddit you want, the \_value of* "url" with the link to the subreddit, and the _value of_ "cfgs" to the paths to a new .cfg file.
 
 3. Replace the value of "currently_used_subreddit_name" with the name of the subreddit you want to use (whatever name you used to replace "subreddit_name")
 
