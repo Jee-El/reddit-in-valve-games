@@ -3,11 +3,11 @@ require 'nokogiri'
 require 'json'
 
 class Scraper
-  def initialize(subreddit_name)
+  def initialize
     unparsed_json = File.read('./config.json')
     @parsed_json = JSON.parse(unparsed_json)
 
-    @subreddit_name = subreddit_name
+    @subreddit_name = @parsed_json['currently_used_subreddit_name']
     @subreddit_url = @parsed_json[@subreddit_name]['url']
 
     if @parsed_json[@subreddit_name]['has_to_reset_time']
@@ -115,6 +115,4 @@ class Scraper
   end
 end
 
-# Keep the quotes
-# Name should be the same one as you set in config.json
-Scraper.new('SUBREDDIT NAME GOES HERE').start
+Scraper.new.start
