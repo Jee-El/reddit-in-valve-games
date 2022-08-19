@@ -76,7 +76,7 @@ In your terminal or git bash :
 
 Navigate to the dad-jokes-in-valve-games directory if you aren't there already. You'll see a config.json file, where you'll setup your settings, open it in a text editor.
 
-You'll see 2 entries, each one with 5 entries. The only ones you should be changing are : "subreddit_name", "url", "cfgs", "keys".
+You'll see 3 entries. The only ones you should be changing are : "currently_used_subreddit_name", "subreddit_name", "url", "cfgs", "keys".
 
 1. Make your own .cfg file, to do this, just copy one of the .cfg files in this path
 
@@ -164,9 +164,17 @@ In the terminal/git bash :
 
 ## How to change subreddit or setup multiple ones
 
-Go to the config.json file, the first entry named "subreddit_name" is a template to use to set it up for other subreddits, so copy-paste it then just replace "subreddit_name" with the name of the subreddit you want, then the _value of_ "url" with the link to the subreddit, and the _value of_ "cfgs" to the paths to a new .cfg file.
+Go to the config.json file, the second entry named "subreddit_name" is a template to use to set it up for other subreddits
+
+1. Copy-paste it
+
+2. Replace "subreddit_name" with the name of the subreddit you want, the _value of_ "url" with the link to the subreddit, and the _value of_ "cfgs" to the paths to a new .cfg file.
+
+3. Replace the value of "currently_used_subreddit_name" with the name of the subreddit you want to use (whatever name you used to replace "subreddit_name")
 
 Make sure to make a new .cfg file with a different name for each subreddit you add.
+
+If this is too confusing, you have the template and the dadjokes example, they should help you set everything up!
 
 ## One issue
 
