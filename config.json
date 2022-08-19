@@ -1,5 +1,5 @@
 {
-  "SUBREDDIT_NAME": {
+  "subreddit_name": {
     "url": "SUBREDDIT_URL",
     "cfgs": [
       "PUT ONE OF THE TWO PATHS TO THE .cfg FILE HERE",

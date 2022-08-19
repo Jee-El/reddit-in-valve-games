@@ -18,6 +18,8 @@ Automatically get dad jokes from reddit, bind them to keys in a Valve game, shar
 
 - In this guide, we'll use the game Counter Strike Global Offensive, but this should work on any other valve game that has a console, so if you are doing this to another game, just browse/open the folders for your specific game.
 
+- I'll also use the /r/dadjokes subreddit here, but you can try the same script with other subreddits that allow text-only posts. _See final notes on how to use with other subreddits._
+
 # Guide on how to use it
 
 ## Install Git
@@ -74,7 +76,7 @@ In your terminal or git bash :
 
 Navigate to the dad-jokes-in-valve-games directory if you aren't there already. You'll see a config.json file, where you'll setup your settings, open it in a text editor.
 
-You'll see 5 entries, the only ones you should be changing the values of are the LAST TWO, "dad_jokes_cfgs" and "keys".
+You'll see 2 entries, each one with 5 entries. The only ones you should be changing are : "subreddit_name", "url", "cfgs", "keys".
 
 1. Make your own .cfg file, to do this, just copy one of the .cfg files in this path
 
@@ -96,7 +98,7 @@ or
 
 `/home/HOSTNAME/.steam/steam/steamapps/common/Counter-Strike Global Offensive/csgo/cfg`
 
-In the "dad_jokes_cfgs" in the json file, replace the text "PUT ONE OF THE TWO PATHS TO THE .cfg FILE HERE" & "PUT THE OTHER PATH HERE" with the paths to your .cfg file, make sure the end of the path is the file name and its extension cfg.
+In the "cfgs" in the json file, replace the text "PUT ONE OF THE TWO PATHS TO THE .cfg FILE HERE" & "PUT THE OTHER PATH HERE" with the paths to your .cfg file, make sure the end of the path is the file name and its extension cfg.
 
 e.g:
 
@@ -108,7 +110,7 @@ e.g:
 
 Normally, only one of the paths is necessary, but I've had issues before with the .cfg file, sometimes it worked on the first path, sometimes on the second, so just use both since there is no downside to that.
 
-Now go to the "keys" in the json file, and replace the values (f1, f2, ..., f10) with the keys you want the jokes to be bound to and save the changes.
+Now go to the "keys", the one inside the "dadjokes" entry, in the json file, and replace the values (f1, f2, ..., f10) with the keys you want the jokes to be bound to and save the changes.
 
 ## Setup the dad_jokes.cfg file with your game
 
@@ -138,7 +140,13 @@ The path depends on where you cloned the repository and your OS, so adjust accor
 
 # And Done!
 
-Now just use the shortcut if you've made one, or run the command by yourself on gitbash or terminal, then open csgo, or your valve game of choice, and enjoy spamming the chat with your jokes!
+Now just use the shortcut if you've made one, or run this command by yourself on gitbash or terminal :
+
+`bundle exec ruby /home/HOSTNAME/dad-jokes-in-valve-games/main.rb`
+
+Again, make sure to adjust the path according to where you cloned this repository, and your OS.
+
+then open csgo, or your valve game of choice, and enjoy sharing the jokes in the chat!
 
 You can type, in the console, this command to see if the binds have been updated :
 
@@ -153,6 +161,12 @@ In the terminal/git bash :
 `cd dad-jokes-in-valve-games`
 
 `git pull`
+
+## How to change subreddit or setup multiple ones
+
+Go to the config.json file, the first entry named "subreddit_name" is a template to use to set it up for other subreddits, so copy-paste it then just replace "subreddit_name" with the name of the subreddit you want, then the _value of_ "url" with the link to the subreddit, and the _value of_ "cfgs" to the paths to a new .cfg file.
+
+Make sure to make a new .cfg file with a different name for each subreddit you add.
 
 ## One issue
 
