@@ -170,7 +170,7 @@ Go to the config.json file, the second entry named "subreddit_name" is a templat
 
 1. Copy-paste it
 
-2. Replace "subreddit*name" with the name of the subreddit you want, the \_value of* "url" with the link to the subreddit, and the _value of_ "cfgs" to the paths to a new .cfg file.
+2. Replace "subreddit_name" with the name of the subreddit you want, the _value of_ "url" with the link to the subreddit, and the _value of_ "cfgs" to the paths to a new .cfg file.
 
 3. Replace the value of "currently_used_subreddit_name" with the name of the subreddit you want to use (whatever name you used to replace "subreddit_name")
 
