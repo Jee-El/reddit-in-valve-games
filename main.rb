@@ -83,9 +83,9 @@ class Scraper
 
   def bind_to_keys
     if @contents.flatten.length > @keys.length
-      @keys.zip(@contents.flatten).map { |key, joke| "bind \"#{key}\" \"say #{joke}\"" }
+      @keys.zip(@contents.flatten).map { |key, joke| "bind \"#{key}\" \"say #{joke.gsub('"', "'")}\"" }
     else
-      @contents.flatten.zip(@keys).map { |joke, key| "bind \"#{key}\" \"say #{joke}\"" }
+      @contents.flatten.zip(@keys).map { |joke, key| "bind \"#{key}\" \"say #{joke.gsub('"', "'")}\"" }
     end
   end
 
@@ -106,7 +106,8 @@ class Scraper
 
   def update_cfgs!
     if @contents.empty?
-      puts 'No jokes were returned so try again. Your .cfg file should have the same jokes as before'
+      puts 'No contents were returned. Your .cfg file should have the same contents as before'
+      puts 'Run the script again'
       return
     end
     @parsed_json[@subreddit_name]['cfgs'].each { |cfg| File.write(cfg, (@contents + ['host_writeconfig']).join("\n")) }
