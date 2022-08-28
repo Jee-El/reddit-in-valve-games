@@ -1,3 +1,11 @@
+# NOTE
+
+This branch is NOT tested yet, it likely has some issues, please use the contents in the main branch instead.
+
+If you have this branch locally, just run `git checkout main` so you are on the main branch.
+
+As soon as it is tested, it'll be merged into the main branch.
+
 # dad-jokes-in-valve-games
 
 Automatically get dad jokes from reddit, bind them to keys in a Valve game, share them in the chat with the other players.
@@ -18,7 +26,7 @@ Automatically get dad jokes from reddit, bind them to keys in a Valve game, shar
 
 - Also, the linux guides are mainly for Ubuntu and its official flavors, but it should be easy to find guides for other distributions.
 
-- In this guide, we'll use the game Counter Strike Global Offensive, but this should work on any other valve game that has a console, so if you are doing this to another game, just browse/open the folders for your specific game.
+- In this guide, we'll use the game Counter Strike Global Offensive, but this should work on any other valve game that has a console and a chat system, so if you are doing this to another game, just browse/open the folders for your specific game.
 
 - I'll also use the /r/dadjokes subreddit here, but you can try the same script with other subreddits that allow text-only posts. _See final notes on how to use with other subreddits._
 
@@ -70,6 +78,8 @@ In your terminal or git bash :
 
 `cd dad-jokes-in-valve-games`
 
+`git checkout testing-feature`
+
 ## Install the gems
 
 `bundle install`
@@ -78,51 +88,59 @@ In your terminal or git bash :
 
 Navigate to the dad-jokes-in-valve-games directory if you aren't there already. You'll see a config.json file, where you'll setup your settings, open it in a text editor.
 
-You'll see 3 entries. The only ones you should be changing are : "currently_used_subreddit_name", "subreddit_name", "url", "cfgs", "keys".
+You'll see 3 entries. The only ones you should be changing are : "currently_used_subreddit_name", "subreddit_name", "url", "paths", "keys".
 
-1. Make your own .cfg file, to do this, just copy one of the .cfg files in this path
+We'll be using the dadjokes entry and its nested entries in this guide.
 
-(make sure to replace STEAMID with your steam id, and HOSTNAME with your hostname if you're on linux)
+### On Windows
 
-`C:\Program Files (x86)\Steam\userdata\STEAMID\730\local\cfg`
+On windows, it's a bit simpler since I set it up for windows.
 
-or
+1. In the "paths" entry, replace STEAMID in the first path with your own steam ID.
 
-`/home/HOSTNAME/.steam/steam/userdata/STEAMID/730/local/cfg`
+(Ignore the double backslashes, one is there to escape the other, so they're necessary)
 
-rename it (e.g: dad_jokes.cfg), empty it from any text (optional).
+`"C:\\Program Files (x86)\\Steam\\userdata\\STEAMID\\730\\local\\cfg\\"`
 
-Copy the same file and also put it in this path
+If you're setting this up for CSGO, leave the second path as it is.
 
-`C:\Program Files (x86)\Steam\Steamapps\common\Counter-Strike: Global Offensive\csgo\cfg`
+If you're not, change "Counter-Strike: Global Offensive" with the name of your game's folder. You can follow the path until you're in the "common" folder and you'll find your game's folder there.
 
-or
+### On Linux
 
-`/home/HOSTNAME/.steam/steam/steamapps/common/Counter-Strike Global Offensive/csgo/cfg`
+1. In the "paths" entry, replace the paths with these :
 
-In the "cfgs" in the json file, replace the text "PUT ONE OF THE TWO PATHS TO THE .cfg FILE HERE" & "PUT THE OTHER PATH HERE" with the paths to your .cfg file, make sure the end of the path is the file name and its extension cfg.
+`/home/HOSTNAME/.steam/steam/userdata/STEAMID/730/local/cfg/`
 
-e.g:
+`/home/HOSTNAME/.steam/steam/steamapps/common/Counter-Strike Global Offensive/csgo/cfg/`
 
-`/home/HOSTNAME/.steam/steam/steamapps/common/Counter-Strike Global Offensive/csgo/cfg/dad_jokes.cfg`
+Replace STEAMID with your steam ID, HOSTNAME with your hostname (run `whoami` in the terminal to get it).
 
-(On Linux, make sure the path starts with /home/HOSTNAME and not ~/ so it works as it should)
+If you didn't copy-paste the paths, make sure that both of them start with /home/HOSTNAME and not ~/, and that they end with a forward slash so it works as it should.
+
+If you're setting this up for CSGO, leave the second path as it is.
+
+If you're not, change "Counter-Strike: Global Offensive" with the name of your game's folder. You can follow the path until you're in the "common" folder and you'll find your game's folder there.
 
 ### Note
 
 Normally, only one of the paths is necessary, but I've had issues before with the .cfg file, sometimes it worked on the first path, sometimes on the second, so just use both since there is no downside to that.
 
-Now go to the "keys", the one inside the "dadjokes" entry, in the json file, and replace the values (f1, f2, ..., f10) with the keys you want the jokes to be bound to and save the changes.
+If you want, you can experiment with this by removing one path and keeping the other, once you find the working one, use it alone.
 
-## Setup the dad_jokes.cfg file with your game
+### On Windows and Linux
+
+Now go to the "keys" entry, the one inside the "dadjokes" entry, in the json file, and replace the values (f1, f2, ..., f5) with the keys you want the jokes to be bound to and save the changes.
+
+## Setup the dadjokes.cfg file with your game
+
+Wondering about what dadjokes.cfg file we're talking about? Don't worry, the script will make it once you run it.
 
 steam => view (top left) => library => Find your game and right click on it => properties => general => launch options
 
-Now type : +exec dad_jokes
+Now type : +exec dadjokes
 
-If later you realize that it doesn't work, try : +exec dad_jokes.cfg
-
-(Use the name you gave to the file, dad_jokes is what I named it).
+If later you realize that it doesn't work, try : +exec dadjokes.cfg
 
 ## Setup a shortcut to run the script (optional)
 
@@ -138,7 +156,7 @@ Look for shortcuts in the system's search bar or settings, click on the plus ico
 
 `bundle exec ruby /home/HOSTNAME/dad-jokes-in-valve-games/main.rb`
 
-The path depends on where you cloned the repository and your OS, so adjust accordingly.
+The path depends on where you cloned the repository and your OS, so adjust accordingly, the one above is for linux.
 
 # And Done!
 
@@ -156,13 +174,23 @@ You can type, in the console, this command to see if the binds have been updated
 
 # Final Notes
 
+## One issue
+
+I'm facing an issue on Linux (Ubuntu) where the binds don't apply to the game automatically, though the .cfg file gets updated, so it's an issue with my OS or the game. If you face the same issue, you can either run `exec dadjokes` in the console everytime you open the game and everything will work as it should, or bind a key to do that for you :
+
+`bind "f1" "exec dad_jokes"`
+
+In this case, you just press F1 each time you run the script and you want to update the binds.
+
 ## To stay up to date with the changes/fixes
 
 In the terminal/git bash :
 
 `cd dad-jokes-in-valve-games`
 
-`git pull`
+`git checkout testing-feature`
+
+`git pull origin testing-feature`
 
 ## How to change subreddit or setup multiple ones
 
@@ -170,22 +198,20 @@ Go to the config.json file, the second entry named "subreddit_name" is a templat
 
 1. Copy-paste it
 
-2. Replace "subreddit_name" with the name of the subreddit you want, the _value of_ "url" with the link to the subreddit, and the _value of_ "cfgs" to the paths to a new .cfg file.
+2. Replace "subreddit_name" with the name of the subreddit you want (doesn't have to be accurate, it'll be used to name your .cfg file).
+
+3. Replace "SUBREDDITNAME" in the end of value of "url" with the subreddit name (must be accurate).
+
+4. For the paths, just follow the steps that I already listed above.
 
 3. Replace the value of "currently_used_subreddit_name" with the name of the subreddit you want to use (whatever name you used to replace "subreddit_name")
 
-Make sure to make a new .cfg file with a different name for each subreddit you add.
-
 If this is too confusing, you have the template and the dadjokes example, they should help you set everything up!
 
-## One issue
+## Some Warnings
 
-I'm facing an issue on Linux (Ubuntu) where the binds don't apply to the game automatically, though the .cfg file gets updated, so it's an issue with my OS or the game. If you face the same issue, you can either run `exec dad_jokes` in the console everytime you open the game and everything will work as it should, or bind a key to do that for you :
+- DO NOT make two entries with the same "subreddit_name" value.
 
-`bind "f1" "exec dad_jokes"`
+- DO NOT replace "subreddit_name" with the name of a .cfg file that's already in either/both paths. For example, it's common to have a file called config.cfg or autoexec.cfg, so don't replace "subreddit_name" with "config" or "autoexec", it'll delete all the contents inside them.
 
-## A warning
-
-It's better not to change any other settings in the .json file unless you know what you are doing. Currently the script will work, meaning you can use the shortcut or run the command, a maximum of 30 times a day (since the last time you ran the script for the first time), sometimes less, this is because sending too many requests to reddit sounds like a bad idea, but yeah you can change the "maximum_requests" value to a higher value if you want to be able to use it more than 30 times.
-
-The good thing is that the top page of reddit's subreddit dadjokes isn't updated often enough for you to use the shortcut many times for a meaningful reason, so you'll just see the same jokes bound to the same keys.
+- It's better not to change any other settings in the .json file unless you know what you are doing. Currently the script will work, meaning you can use the shortcut or run the command, a maximum of 30 times a day (since the last time you ran the script for the first time), sometimes less, this is because sending too many requests to reddit sounds like a bad idea, but yeah you can change the "maximum_requests" value to a higher value if you want to be able to use it more than 30 times. The good thing is that the hot page of subreddits isn't updated often enough for you to use the shortcut many times for a meaningful reason, so you'll just see the same contents bound to the same keys.

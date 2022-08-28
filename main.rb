@@ -26,9 +26,13 @@ class Scraper
     scrape
     update_requests
     parse_for_chat!
-    @contents = bind_to_keys
-    update_cfgs!
-    File.write('./config.json', JSON.dump(@parsed_json))
+    if @contents.empty?
+      no_contents_returned
+    else
+      @contents = bind_to_keys
+      update_cfgs!
+    end
+    update_json!
   end
 
   private
@@ -105,14 +109,22 @@ class Scraper
   end
 
   def update_cfgs!
-    if @contents.empty?
-      puts 'No contents were returned. Your .cfg file should have the same contents as before'
-      puts 'Run the script again'
-      return
+    @parsed_json[@subreddit_name]['paths'].each do |path|
+      File.write(path + @parsed_json[@subreddit_name] + '.cfg',
+                (@contents + ['host_writeconfig']).join("\n"))
     end
-    @parsed_json[@subreddit_name]['cfgs'].each { |cfg| File.write(cfg, (@contents + ['host_writeconfig']).join("\n")) }
-    puts 'New jokes were returned, your .cfg file was updated.'
+    puts "New jokes were returned, your #{@parsed_json[@subreddit_name]}.cfg file was updated."
     puts 'They might be the same jokes as before, try again after a few hours if that\'s the case'
+  end
+
+  def no_contents_returned
+    puts 'No contents were returned.'
+    puts "Your #{@parsed_json[@subreddit_name]}.cfg file should have the same contents as before"
+    puts 'Run the script again'
+  end
+
+  def update_json
+    File.write('./config.json', JSON.dump(@parsed_json))
   end
 end
 
