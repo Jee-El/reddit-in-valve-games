@@ -12,47 +12,47 @@ Automatically get dad jokes from reddit, bind them to keys in a Valve game, shar
 
 # Contents
 
-1. [Why?](#why)
+- [Why?](#why)
 
-2. [Notes](#notes)
+- [Notes](#notes)
 
-3. [Guide](#guide)
+- [Guide](#guide)
 
-  - 1. [Install Git](#install-git)
+  1. [Install Git](#install-git)
 
-    - [Windows](#on-windows)
+      - [Windows](#on-windows)
 
-    - [Linux](#on-linux)
+      - [Linux](#on-linux)
 
-  - 2. [Install Ruby](#install-ruby)
+  2. [Install Ruby](#install-ruby)
     
-    - [On Windows](#on-windows-1)
+      - [On Windows](#on-windows-1)
 
-    - [On Linux](#on-linux-1)
+      - [On Linux](#on-linux-1)
 
-  - 3. [Install Bundler](#install-bundler)
+  3. [Install Bundler](#install-bundler)
 
-  - 4. [Clone This Repository](#clone-this-repository)
+  4. [Clone This Repository](#clone-this-repository)
 
-  - 5. [Install Required Gems](#install-required-gems)
+  5. [Install Required Gems](#install-required-gems)
 
-  - 6. [Setup the JSON file](#setup-the-json-file)
+  6. [Setup the JSON file](#setup-the-json-file)
 
-    - [For Windows](#for-windows)
+      - [For Windows](#for-windows)
 
-    - [For Linux](#for-linux)
+      - [For Linux](#for-linux)
 
-    - [Why Two Paths?](#why-two-paths)
+      - [Why Two Paths?](#why-two-paths)
 
-    - [For Windows and Linux](#for-windows-and-linux)
+      - [For Windows and Linux](#for-windows-and-linux)
 
-  - 7. [Setup The dadjokes.cfg File](#setup-the-dadjokescfg-file)
+  7. [Setup The dadjokes.cfg File](#setup-the-dadjokescfg-file)
 
-  - 8. [Multiple Subreddits](#multiple-subreddits)
+  8. [Multiple Subreddits](#multiple-subreddits)
   
-  - 9. [Done!](#done)
+  9. [Done!](#done)
 
-4. [IMPORTANT](#important)
+- [IMPORTANT](#important)
 
   - [One Issue](#one-issue)
 
