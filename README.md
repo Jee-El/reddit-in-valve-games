@@ -10,13 +10,63 @@ As soon as it is tested, it'll be merged into the main branch.
 
 Automatically get dad jokes from reddit, bind them to keys in a Valve game, share them in the chat with the other players.
 
-## Why?
+# Contents
+
+1. [Why?](#why)
+
+2. [Notes](#notes)
+
+3. [Guide](#guide)
+
+  - 1. [Install Git](#install-git)
+
+    - [Windows](#on-windows)
+
+    - [Linux](#on-linux)
+
+  - 2. [Install Ruby](#install-ruby)
+    
+    - [On Windows](#on-windows-1)
+
+    - [On Linux](#on-linux-1)
+
+  - 3. [Install Bundler](#install-bundler)
+
+  - 4. [Clone This Repository](#clone-this-repository)
+
+  - 5. [Install Required Gems](#install-required-gems)
+
+  - 6. [Setup the JSON file](#setup-the-json-file)
+
+    - [For Windows](#for-windows)
+
+    - [For Linux](#for-linux)
+
+    - [Why Two Paths?](#why-two-paths)
+
+    - [For Windows and Linux](#for-windows-and-linux)
+
+  - 7. [Setup The dadjokes.cfg File](#setup-the-dadjokescfg-file)
+
+  - 8. [Multiple Subreddits](#multiple-subreddits)
+  
+  - 9. [Done!](#done)
+
+4. [IMPORTANT](#important)
+
+  - [One Issue](#one-issue)
+
+  - [Stay Up To Date](#to-stay-up-to-date-with-the-changesfixes)
+
+  - [Some Warnings](#some-warnings)
+
+# Why?
 
 1. I find these jokes the funniest, so I've been enjoying spamming them in the chat for the other players to read & laugh (some find them unfunny, which is fair, but I like making them read them anyways haha).
 
 2. I've lately been doing this manually, copy-pasting jokes and binding them to keys, which would take me quite a bit of time daily and eventually made me lazy to update them, so I thought why not automate the whole thing.
 
-## Notes
+# Notes
 
 - Originally, this was made only for the dadjokes subreddit, but It should work quite well with other text-only subreddits so feel free to try it out!
 
@@ -30,7 +80,7 @@ Automatically get dad jokes from reddit, bind them to keys in a Valve game, shar
 
 - I'll also use the /r/dadjokes subreddit here, but you can try the same script with other subreddits that allow text-only posts. _See final notes on how to use with other subreddits._
 
-# Guide on how to use it
+# Guide
 
 ## Install Git
 
@@ -40,7 +90,7 @@ Follow this guide until 1:48 :
 
 [youtube](https://www.youtube.com/watch?v=2j7fD92g-gE)
 
-### On Linux/MacOS/Chrome OS/CloudReady
+### On Linux
 
 Follow only the first step (Step 1) of this guide :
 
@@ -58,7 +108,7 @@ And here's a video that will guide you through the installation process :
 
 [youtube](https://www.youtube.com/watch?v=XC1ccTyhLPI)
 
-### On Linux/MacOS
+### On Linux
 
 Follow this guide :
 
@@ -72,7 +122,7 @@ In your terminal or git bash :
 
 `gem install bundler`
 
-## Clone this repository
+## Clone This Repository
 
 `git clone https://github.com/Jee-El/dad-jokes-in-valve-games.git`
 
@@ -80,19 +130,19 @@ In your terminal or git bash :
 
 `git checkout testing-feature`
 
-## Install the gems
+## Install Required Gems
 
 `bundle install`
 
-## Setup the json file
+## Setup The JSON File
 
 Navigate to the dad-jokes-in-valve-games directory if you aren't there already. You'll see a config.json file, where you'll setup your settings, open it in a text editor.
 
-You'll see 3 entries. The only ones you should be changing are : "currently_used_subreddit_name", "subreddit_name", "url", "paths", "keys".
+You'll see 3 entries. The only ones you should be changing are : "currently_used_subreddit_name", "SUBREDDIT_NAME", "url", "paths", "keys".
 
 We'll be using the dadjokes entry and its nested entries in this guide.
 
-### On Windows
+### For Windows
 
 On windows, it's a bit simpler since I set it up for windows.
 
@@ -106,7 +156,7 @@ If you're setting this up for CSGO, leave the second path as it is.
 
 If you're not, change "Counter-Strike: Global Offensive" with the name of your game's folder. You can follow the path until you're in the "common" folder and you'll find your game's folder there.
 
-### On Linux
+### For Linux
 
 1. In the "paths" entry, replace the paths with these :
 
@@ -122,17 +172,17 @@ If you're setting this up for CSGO, leave the second path as it is.
 
 If you're not, change "Counter-Strike: Global Offensive" with the name of your game's folder. You can follow the path until you're in the "common" folder and you'll find your game's folder there.
 
-### Note
+### Why Two Paths?
 
 Normally, only one of the paths is necessary, but I've had issues before with the .cfg file, sometimes it worked on the first path, sometimes on the second, so just use both since there is no downside to that.
 
 If you want, you can experiment with this by removing one path and keeping the other, once you find the working one, use it alone.
 
-### On Windows and Linux
+### For Windows and Linux
 
 Now go to the "keys" entry, the one inside the "dadjokes" entry, in the json file, and replace the values (f1, f2, ..., f5) with the keys you want the jokes to be bound to and save the changes.
 
-## Setup the dadjokes.cfg file with your game
+## Setup The dadjokes.cfg File
 
 Wondering about what dadjokes.cfg file we're talking about? Don't worry, the script will make it once you run it.
 
@@ -142,37 +192,41 @@ Now type : +exec dadjokes
 
 If later you realize that it doesn't work, try : +exec dadjokes.cfg
 
-## Setup a shortcut to run the script (optional)
+## Multiple Subreddits
 
-### Windows
+Go to the config.json file, the second entry named "SUBREDDIT_NAME" is a template to use to set it up for other subreddits
 
-https://www.wikihow.com/Run-Command-Prompt-Commands-from-a-Windows-Shortcut
+1. Copy-paste it
 
-Use same command as below.
+2. Replace "SUBREDDIT_NAME" with the name of the subreddit you want (doesn't have to be accurate, it'll be used to name your .cfg file).
 
-### Linux
+3. Replace "SUBREDDIT_NAME" *in the "url" entry* with the subreddit name (must be accurate).
 
-Look for shortcuts in the system's search bar or settings, click on the plus icon to add a shortcut, name it whatever you want, give it the combination of keys you want (e.g: alt + /), in the command field type :
+4. For the paths, just follow the steps that I already listed above.
 
-`bundle exec ruby /home/HOSTNAME/dad-jokes-in-valve-games/main.rb`
+3. Replace the value of "currently_used_subreddit_name" with the name of the subreddit you want to use (whatever name you used to replace "SUBREDDIT_NAME")
 
-The path depends on where you cloned the repository and your OS, so adjust accordingly, the one above is for linux.
+If this is too confusing, you have the template and the dadjokes example, they should help you set everything up!
 
-# And Done!
+# Done!
 
-Now just use the shortcut if you've made one, or run this command by yourself on gitbash or terminal :
+- Run this command to navigate to where you cloned this repository, replace the path with the path to the folder named *dad-jokes-in-valve-games* : `cd <path>`
 
-`bundle exec ruby /home/HOSTNAME/dad-jokes-in-valve-games/main.rb`
+Don't include the greater-than/less-than symbols.
 
-Again, make sure to adjust the path according to where you cloned this repository, and your OS.
+Run `pwd`, it should return a path ending with *dad-jokes-in-valve-games*, if it doesn't, double check the path you entered.
 
-then open csgo, or your valve game of choice, and enjoy sharing the jokes in the chat!
+Finally, run : `bundle exec ruby main.rb`
+
+Wait until it's done. When it's done, it should return some ouput.
+
+Open csgo, or your valve game of choice, and enjoy sharing the jokes in the chat!
 
 You can type, in the console, this command to see if the binds have been updated :
 
 `key_listboundkeys`
 
-# Final Notes
+# IMPORTANT
 
 ## One issue
 
@@ -184,34 +238,20 @@ In this case, you just press F1 each time you run the script and you want to upd
 
 ## To stay up to date with the changes/fixes
 
-In the terminal/git bash :
+- Store a copy of your `config.json` file somewhere else.
 
-`cd dad-jokes-in-valve-games`
+- In the terminal/git bash (same path mentioned [above](#done)) :
+
+`cd <path>`
 
 `git checkout testing-feature`
 
 `git pull origin testing-feature`
 
-## How to change subreddit or setup multiple ones
-
-Go to the config.json file, the second entry named "subreddit_name" is a template to use to set it up for other subreddits
-
-1. Copy-paste it
-
-2. Replace "subreddit_name" with the name of the subreddit you want (doesn't have to be accurate, it'll be used to name your .cfg file).
-
-3. Replace "SUBREDDITNAME" in the end of value of "url" with the subreddit name (must be accurate).
-
-4. For the paths, just follow the steps that I already listed above.
-
-3. Replace the value of "currently_used_subreddit_name" with the name of the subreddit you want to use (whatever name you used to replace "subreddit_name")
-
-If this is too confusing, you have the template and the dadjokes example, they should help you set everything up!
-
 ## Some Warnings
 
-- DO NOT make two entries with the same "subreddit_name" value.
+- DO NOT make two entries with the same "SUBREDDIT_NAME" value.
 
-- DO NOT replace "subreddit_name" with the name of a .cfg file that's already in either/both paths. For example, it's common to have a file called config.cfg or autoexec.cfg, so don't replace "subreddit_name" with "config" or "autoexec", it'll delete all the contents inside them.
+- DO NOT replace "SUBREDDIT_NAME" with the name of a .cfg file that's already in either/both paths. For example, it's common to have a file called config.cfg or autoexec.cfg, so don't replace "SUBREDDIT_NAME" with "config" or "autoexec", it'll delete all the contents inside them.
 
 - It's better not to change any other settings in the .json file unless you know what you are doing. Currently the script will work, meaning you can use the shortcut or run the command, a maximum of 30 times a day (since the last time you ran the script for the first time), sometimes less, this is because sending too many requests to reddit sounds like a bad idea, but yeah you can change the "maximum_requests" value to a higher value if you want to be able to use it more than 30 times. The good thing is that the hot page of subreddits isn't updated often enough for you to use the shortcut many times for a meaningful reason, so you'll just see the same contents bound to the same keys.
