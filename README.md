@@ -70,7 +70,7 @@ Automatically get dad jokes from reddit, bind them to keys in a Valve game, shar
 
 - Originally, this was made only for the dadjokes subreddit, but It should work quite well with other text-only subreddits so feel free to try it out!
 
-- Contact me on discord if you face any issues, it's on my github page, or create an issue on this repository.
+- If you face any issues, contact me on reddit /u/jee-el, or open an issue on this repository.
 
 - The guides provided are just a few out of plenty, so feel free to use any other guide(s) to get git, ruby, and bundler installed.
 
