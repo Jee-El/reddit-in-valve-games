@@ -20,15 +20,15 @@ Automatically get dad jokes from reddit, bind them to keys in a Valve game, shar
 
   1. [Install Git](#install-git)
 
-      - [Windows](#on-windows)
+     - [Windows](#on-windows)
 
-      - [Linux](#on-linux)
+     - [Linux](#on-linux)
 
   2. [Install Ruby](#install-ruby)
-    
-      - [On Windows](#on-windows-1)
 
-      - [On Linux](#on-linux-1)
+     - [On Windows](#on-windows-1)
+
+     - [On Linux](#on-linux-1)
 
   3. [Install Bundler](#install-bundler)
 
@@ -38,18 +38,18 @@ Automatically get dad jokes from reddit, bind them to keys in a Valve game, shar
 
   6. [Setup the JSON file](#setup-the-json-file)
 
-      - [For Windows](#for-windows)
+     - [For Windows](#for-windows)
 
-      - [For Linux](#for-linux)
+     - [For Linux](#for-linux)
 
-      - [Why Two Paths?](#why-two-paths)
+     - [Why Two Paths?](#why-two-paths)
 
-      - [For Windows and Linux](#for-windows-and-linux)
+     - [For Windows and Linux](#for-windows-and-linux)
 
   7. [Setup The dadjokes.cfg File](#setup-the-dadjokescfg-file)
 
   8. [Multiple Subreddits](#multiple-subreddits)
-  
+
   9. [Done!](#done)
 
 - [IMPORTANT](#important)
@@ -200,21 +200,21 @@ Go to the config.json file, the second entry named "SUBREDDIT_NAME" is a templat
 
 2. Replace "SUBREDDIT_NAME" with the name of the subreddit you want (doesn't have to be accurate, it'll be used to name your .cfg file).
 
-3. Replace "SUBREDDIT_NAME" *in the "url" entry* with the subreddit name (must be accurate).
+3. Replace "SUBREDDIT*NAME" \_in the "url" entry* with the subreddit name (must be accurate).
 
 4. For the paths, just follow the steps that I already listed above.
 
-3. Replace the value of "currently_used_subreddit_name" with the name of the subreddit you want to use (whatever name you used to replace "SUBREDDIT_NAME")
+5. Replace the value of "currently_used_subreddit_name" with the name of the subreddit you want to use (whatever name you used to replace "SUBREDDIT_NAME")
 
 If this is too confusing, you have the template and the dadjokes example, they should help you set everything up!
 
 # Done!
 
-- Run this command to navigate to where you cloned this repository, replace the path with the path to the folder named *dad-jokes-in-valve-games* : `cd <path>`
+- Run this command to navigate to where you cloned this repository, replace the path with the path to the folder named _dad-jokes-in-valve-games_ : `cd <path>`
 
 Don't include the greater-than/less-than symbols.
 
-Run `pwd`, it should return a path ending with *dad-jokes-in-valve-games*, if it doesn't, double check the path you entered.
+Run `pwd`, it should return a path ending with _dad-jokes-in-valve-games_, if it doesn't, double check the path you entered.
 
 Finally, run : `bundle exec ruby main.rb`
 
