@@ -87,9 +87,9 @@ class Scraper
 
   def bind_to_keys
     if @contents.flatten.length > @keys.length
-      @keys.zip(@contents.flatten).map { |key, joke| "bind \"#{key}\" \"say #{joke.gsub('"', "'")}\"" }
+      @keys.zip(@contents.flatten).map { |key, content| "bind \"#{key}\" \"say #{content.gsub('"', "'")}\"" }
     else
-      @contents.flatten.zip(@keys).map { |joke, key| "bind \"#{key}\" \"say #{joke.gsub('"', "'")}\"" }
+      @contents.flatten.zip(@keys).map { |content, key| "bind \"#{key}\" \"say #{content.gsub('"', "'")}\"" }
     end
   end
 
@@ -110,16 +110,16 @@ class Scraper
 
   def update_cfgs!
     @parsed_json[@subreddit_name]['paths'].each do |path|
-      File.write(path + @parsed_json[@subreddit_name] + '.cfg',
+      File.write(path + @subreddit_name + '.cfg',
                 (@contents + ['host_writeconfig']).join("\n"))
     end
-    puts "New jokes were returned, your #{@parsed_json[@subreddit_name]}.cfg file was updated."
-    puts 'They might be the same jokes as before, try again after a few hours if that\'s the case'
+    puts "New contents were returned, your #{@subreddit_name}.cfg file was updated."
+    puts 'They might be the same contents as before, try again after a few hours if that\'s the case'
   end
 
   def no_contents_returned
     puts 'No contents were returned.'
-    puts "Your #{@parsed_json[@subreddit_name]}.cfg file should have the same contents as before"
+    puts "Your #{@subreddit_name}.cfg file should have the same contents as before"
     puts 'Run the script again'
   end
 
