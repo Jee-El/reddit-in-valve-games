@@ -120,8 +120,6 @@ In your terminal or git bash :
 
 `cd dad-jokes-in-valve-games`
 
-`git checkout testing-feature`
-
 ## Install Required Gems
 
 `bundle install`
@@ -236,9 +234,7 @@ In this case, you just press F1 each time you run the script and you want to upd
 
 `cd <path>`
 
-`git checkout testing-feature`
-
-`git pull origin testing-feature`
+`git pull`
 
 ## Some Warnings
 
