@@ -123,7 +123,7 @@ class Scraper
     puts 'Run the script again'
   end
 
-  def update_json
+  def update_json!
     File.write('./config.json', JSON.dump(@parsed_json))
   end
 end
