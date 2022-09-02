@@ -1,11 +1,3 @@
-# NOTE
-
-This branch is NOT tested yet, it likely has some issues, please use the contents in the main branch instead.
-
-If you have this branch locally, just run `git checkout main` so you are on the main branch.
-
-As soon as it is tested, it'll be merged into the main branch.
-
 # dad-jokes-in-valve-games
 
 Automatically get dad jokes from reddit, bind them to keys in a Valve game, share them in the chat with the other players.
