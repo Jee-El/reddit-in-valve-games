@@ -1,6 +1,7 @@
 require 'open-uri'
 require 'nokogiri'
 require 'json'
+require 'unicode/emoji'
 
 class Scraper
   def initialize
@@ -87,10 +88,15 @@ class Scraper
 
   def bind_to_keys
     if @contents.flatten.length > @keys.length
-      @keys.zip(@contents.flatten).map { |key, content| "bind \"#{key}\" \"say #{content.gsub('"', "'")}\"" }
+      @keys.zip(@contents.flatten).map { |key, content| "bind \"#{key}\" \"say #{clean_content(content)}\"" }
     else
-      @contents.flatten.zip(@keys).map { |content, key| "bind \"#{key}\" \"say #{content.gsub('"', "'")}\"" }
+      @contents.flatten.zip(@keys).map { |content, key| "bind \"#{key}\" \"say #{clean_content(content)}\"" }
     end
+  end
+
+  def clean_content(content)
+    content = content.gsub('"', "'")
+    content.gsub(Unicode::Emoji::REGEX_WELL_FORMED, '')
   end
 
   def update_requests
