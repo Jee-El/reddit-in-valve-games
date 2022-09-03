@@ -170,7 +170,9 @@ If you want, you can experiment with this by removing one path and keeping the o
 
 ### For Windows and Linux
 
-Now go to the "keys" entry, the one inside the "dadjokes" entry, in the json file, and replace the values (f1, f2, ..., f5) with the keys you want the jokes to be bound to and save the changes.
+Now go to the "keys" entry, the one inside the "dadjokes" entry, in the json file, and replace the values (f1, f2, ..., f6) with the keys you want the jokes to be bound to and save the changes.
+
+I suggest you use an even amount of keys, e.g: 2, 4, 6, 8 etc..
 
 ## Setup The dadjokes.cfg File
 
