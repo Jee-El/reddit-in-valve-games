@@ -1,7 +1,8 @@
 require 'json'
 
 class ConfigsManager
-  def initialize(settings, subreddit_name, contents)
+  def initialize(settings_path settings, subreddit_name, contents)
+    @settings_path = settings_path
     @settings = settings
     @subreddit_name = subreddit_name
     @contents = contents
@@ -37,6 +38,6 @@ class ConfigsManager
   end
 
   def update_json!
-    File.write('./config.json', JSON.dump(@settings))
+    File.write(@settings_path, JSON.dump(@settings))
   end
 end

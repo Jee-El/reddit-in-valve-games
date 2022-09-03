@@ -4,7 +4,7 @@ require 'json'
 
 class Scraper
   def initialize
-    unparsed_settings = File.read('./config.json')
+    unparsed_settings = File.read(settings_path)
     @settings = JSON.parse(unparsed_settings)
 
     @subreddit_name = @settings['currently_used_subreddit_name']
@@ -21,10 +21,15 @@ class Scraper
   def start
     scrape
     update_requests
-    [@settings, @subreddit_name, @contents]
+    [settings_path, @settings, @subreddit_name, @contents]
   end
 
   private
+
+  def settings_path
+    cloned_repo_path = `bash -c "find / -type d -name 'dad-jokes-in-valve-games' 2> /dev/null"`
+    cloned_repo_path.chomp + (File::ALT_SEPARATOR || File::SEPARATOR) + 'config.json'
+  end
 
   def scrape
     while @attempts < 5 && @total_requests < @maximum_requests && @contents.empty?

@@ -1,7 +1,8 @@
 require 'unicode/emoji'
 
 class ContentsParser
-  def initialize(settings, subreddit_name, contents)
+  def initialize(settings_path, settings, subreddit_name, contents)
+    @settings_path = settings_path
     @settings = settings
     @subreddit_name = subreddit_name
     @contents = contents
@@ -10,7 +11,7 @@ class ContentsParser
 
   def parse
     parse_for_chat!
-    [@settings, @subreddit_name, bind_to_keys]
+    [@settings_path, @settings, @subreddit_name, bind_to_keys]
   end
 
   private
