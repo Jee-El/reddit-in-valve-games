@@ -42,7 +42,9 @@ Automatically get dad jokes from reddit, bind them to keys in a Valve game, shar
 
   8. [Multiple Subreddits](#multiple-subreddits)
 
-  9. [Done!](#done)
+  9. [Run The Script](#run-the-script)
+
+  10. [Done!](#done)
 
 - [IMPORTANT](#important)
 
@@ -200,21 +202,33 @@ Go to the config.json file, the second entry named "SUBREDDIT_NAME" is a templat
 
 If this is too confusing, you have the template and the dadjokes example, they should help you set everything up!
 
-# Done!
+# Run The Script
 
-- Run this command to navigate to where you cloned this repository, replace the path with the path to the folder named _dad-jokes-in-valve-games_ : `cd <path>`
+There are two ways to use the script :
 
-Don't include the greater-than/less-than symbols.
+- Run this command, in gitbash/terminal :
 
-Run `pwd`, it should return a path ending with _dad-jokes-in-valve-games_, if it doesn't, double check the path you entered.
+`ruby <path>/main.rb`
 
-Finally, run : `bundle exec ruby main.rb`
+Replace the path with the path to the folder named _dad-jokes-in-valve-games_, and don't include the greater-than/less-than symbols.
+
+If you can't find it, run this in gitbash/terminal :
+
+`bash -c "find / -type d -name 'dad-jokes-in-valve-games' 2> /dev/null"`
+
+It should return a path ending with _dad-jokes-in-valve-games_, that's the path you need.
 
 Wait until it's done. When it's done, it should return some ouput.
 
+- Make a shortcut with a shortcuts-configurating program
+
+After you look up how to make custom shortcuts, type the command above in the appropriate input field of the program you chose.
+
+# Done!
+
 Open csgo, or your valve game of choice, and enjoy sharing the jokes in the chat!
 
-You can type, in the console, this command to see if the binds have been updated :
+You can type, in the console (as in, the CSGO/CSS/whatever console, not gitbash nor terminal), this command to see if the binds have been updated :
 
 `key_listboundkeys`
 
@@ -222,11 +236,11 @@ You can type, in the console, this command to see if the binds have been updated
 
 ## One issue
 
-I'm facing an issue on Linux (Ubuntu) where the binds don't apply to the game automatically, though the .cfg file gets updated, so it's an issue with my OS or the game. If you face the same issue, you can either run `exec dadjokes` in the console everytime you open the game and everything will work as it should, or bind a key to do that for you :
+I'm facing an issue on Linux (Ubuntu) where the binds don't apply to the game automatically, though the .cfg file gets updated, so it's an issue with my OS or the game. If you face the same issue, you can either run `exec dadjokes` in the console (again, the CSGO/CSS/whatever console), everytime you run the script and everything will work as it should, or bind a key to do that for you :
 
 `bind "f1" "exec dad_jokes"`
 
-In this case, you just press F1 each time you run the script and you want to update the binds.
+In this case, you just press F1 each time you run the script and you want to update the binds. (You must be in-game, of course)
 
 ## To stay up to date with the changes/fixes
 
