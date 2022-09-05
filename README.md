@@ -1,6 +1,10 @@
-# dad-jokes-in-valve-games
+# reddit-in-valve-games
 
-Automatically get dad jokes from reddit, bind them to keys in a Valve game, share them in the chat with the other players.
+Automatically get contents from reddit, bind them to keyboard keys in a Valve game, share them in the chat with the other players.
+
+## Note
+
+This project was originally made to get only dad jokes from reddit, but I realized I could make it work with other text-only subreddits so I went with that!
 
 # Contents
 
@@ -56,13 +60,11 @@ Automatically get dad jokes from reddit, bind them to keys in a Valve game, shar
 
 # Why?
 
-1. I find these jokes the funniest, so I've been enjoying spamming them in the chat for the other players to read & laugh (some find them unfunny, which is fair, but I like making them read them anyways haha).
+1. I find dad jokes incredibly funny, so I've been enjoying spamming them in the chat for the other players to read & laugh (some find them unfunny, which is fair, but I like making them read them anyways haha).
 
 2. I've lately been doing this manually, copy-pasting jokes and binding them to keys, which would take me quite a bit of time daily and eventually made me lazy to update them, so I thought why not automate the whole thing.
 
 # Notes
-
-- Originally, this was made only for the dadjokes subreddit, but It should work quite well with other text-only subreddits so feel free to try it out!
 
 - If you face any issues, contact me on reddit /u/jee-el, or open an issue on this repository.
 
@@ -72,7 +74,7 @@ Automatically get dad jokes from reddit, bind them to keys in a Valve game, shar
 
 - In this guide, we'll use the game Counter Strike Global Offensive, but this should work on any other valve game that has a console and a chat system, so if you are doing this to another game, just browse/open the folders for your specific game.
 
-- I'll also use the /r/dadjokes subreddit here, but you can try the same script with other subreddits that allow text-only posts. _See final notes on how to use with other subreddits._
+- I'll also use the /r/dadjokes subreddit here, but you can try the same script with other subreddits that allow text-only posts. _See [Multiple Subreddits](#multiple-subreddits) on how to use with other subreddits._
 
 # Guide
 
