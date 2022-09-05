@@ -1,6 +1,6 @@
 # reddit-in-valve-games
 
-Automatically get contents from reddit, bind them to keyboard keys in a Valve game, share them in the chat with the other players.
+Automatically get text-only contents from reddit, bind them to keyboard keys in a Valve game, share them in the chat with the other players.
 
 ## Note
 
