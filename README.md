@@ -130,7 +130,7 @@ In your terminal or git bash :
 
 Navigate to the dad-jokes-in-valve-games directory if you aren't there already. You'll see a config.json file, where you'll setup your settings, open it in a text editor.
 
-You'll see 3 entries. The only ones you should be changing are : "currently_used_subreddit_name", "SUBREDDIT_NAME", "url", "paths", "keys".
+You'll see a bunch of entries, each with its own nested entries. The only ones you should be changing are : "currently_used_subreddit_name", "SUBREDDIT_NAME", "url", "paths", "keys".
 
 We'll be using the dadjokes entry and its nested entries in this guide.
 
@@ -188,7 +188,7 @@ If later you realize that it doesn't work, try : +exec dadjokes.cfg
 
 ## Multiple Subreddits
 
-Go to the config.json file, the second entry named "SUBREDDIT_NAME" is a template to use to set it up for other subreddits
+Go to the config.json file, the last entry named "SUBREDDIT_NAME" is a template to use to set it up for other subreddits
 
 1. Copy-paste it
 
@@ -200,7 +200,7 @@ Go to the config.json file, the second entry named "SUBREDDIT_NAME" is a templat
 
 5. Replace the value of "currently_used_subreddit_name" with the name of the subreddit you want to use (whatever name you used to replace "SUBREDDIT_NAME")
 
-If this is too confusing, you have the template and the dadjokes example, they should help you set everything up!
+If this is too confusing, you have the template and the examples, they should help you set everything up!
 
 # Run The Script
 
