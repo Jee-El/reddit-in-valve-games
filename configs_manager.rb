@@ -1,7 +1,7 @@
 require 'json'
 
 class ConfigsManager
-  def initialize(settings_path settings, subreddit_name, contents)
+  def initialize(settings_path, settings, subreddit_name, contents)
     @settings_path = settings_path
     @settings = settings
     @subreddit_name = subreddit_name
