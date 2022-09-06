@@ -120,9 +120,9 @@ In your terminal or git bash :
 
 ## Clone This Repository
 
-`git clone https://github.com/Jee-El/dad-jokes-in-valve-games.git`
+`git clone https://github.com/Jee-El/reddit-in-valve-games.git`
 
-`cd dad-jokes-in-valve-games`
+`cd reddit-in-valve-games`
 
 ## Install Required Gems
 
@@ -212,13 +212,13 @@ There are two ways to use the script :
 
 `ruby <path>/main.rb`
 
-Replace the path with the path to the folder named _dad-jokes-in-valve-games_, and don't include the greater-than/less-than symbols.
+Replace the path with the path to the folder named _reddit-in-valve-games_, and don't include the greater-than/less-than symbols.
 
 If you can't find it, run this in gitbash/terminal :
 
-`bash -c "find / -type d -name 'dad-jokes-in-valve-games' 2> /dev/null"`
+`bash -c "find / -type d -name 'reddit-in-valve-games' 2> /dev/null"`
 
-It should return a path ending with _dad-jokes-in-valve-games_, that's the path you need.
+It should return a path ending with _reddit-in-valve-games_, that's the path you need.
 
 Wait until it's done. When it's done, it should return some ouput.
 
