@@ -1,0 +1,139 @@
+/*
+#00b7a0
+#64f5da
+#f5fafb
+#151e35
+#c83d37
+*/
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+}
+
+.main-container {
+  align-items: center;
+  background-color: #0b152f;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
+
+.interface {
+  align-items: flex-start;
+  background-color: #0b152f;
+  box-shadow: 0px 0px 5px rgba(96, 148, 142, 0.5);
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  padding: 4rem 4rem 6rem;
+  position: relative;
+  row-gap: 2rem;
+  width: 500px;
+}
+
+h1 {
+  color: #c0d2e2;
+  font-size: 2rem;
+  letter-spacing: 0.095rem;
+}
+
+.interface > div:not(:nth-child(6)) {
+  align-items: flex-start;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  row-gap: 1rem;
+  width: 100%;
+}
+
+label,
+input,
+select,
+option,
+a {
+  font-size: 0.81rem;
+  font-weight: 500;
+  letter-spacing: 0.095rem;
+}
+
+span {
+  border-bottom: 1px #c83d37 solid;
+  color: #60948e;
+  font-size: 0.87rem;
+  padding: 2px 0px;
+}
+
+label {
+  border-bottom: none;
+  color: #c0d2e2;
+  font-size: 0.74rem;
+}
+
+input,
+select,
+button {
+  background-color: #151e35;
+  border: 1px solid #60948e;
+  border-radius: 2px;
+  padding: 10px;
+}
+
+input,
+select {
+  color: #c0d2e2;
+  width: 100%;
+}
+
+input:focus,
+select:focus,
+button:focus {
+  border: 1px #c0d2e2 solid;
+  outline: none;
+}
+
+select {
+  align-items: flex-start;
+  border-radius: 2px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  width: 100%;
+}
+
+option {
+  font-weight: 500;
+}
+
+.buttons {
+  align-items: center;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  width: 100%;
+}
+
+button {
+  align-self: center;
+  color: #c83d37;
+  cursor: pointer;
+  font-size: 0.88rem;
+  width: 100px;
+}
+
+a {
+  align-self: center;
+  bottom: 2rem;
+  color: #c0d2e2;
+  padding: 2px 0px;
+  position: absolute;
+  text-decoration: none;
+}

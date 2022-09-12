@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Reddit In Valve Games</title>
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="interface">
+        <h1>Setup</h1>
+        <div>
+          <label for="subreddits"><span>Currently Used Subreddit</span></label>
+          <select name="subreddits" id="subreddits"></select>
+        </div>
+        <div>
+          <label for="first-path"
+            ><span>First Path</span> (ends with /cfg/ or \cfg\)</label
+          >
+          <input type="text" id="first-path" />
+        </div>
+        <div>
+          <label for="second-path"
+            ><span>Second Path</span> (ends with /cfg/ or \cfg\)</label
+          >
+          <input type="text" id="second-path" />
+        </div>
+        <div>
+          <label for="keys"><span>Keys</span> (separated by a comma)</label>
+          <input type="text" id="keys" />
+        </div>
+        <div class="buttons">
+          <button id="run-btn" type="button">Run</button>
+          <button id="save-btn" type="button">Save</button>
+        </div>
+        <a href="./add_subreddit.html">Add A Subreddit</a>
+      </div>
+    </div>
+  </body>
+</html>

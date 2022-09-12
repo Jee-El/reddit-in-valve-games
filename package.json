@@ -1,0 +1,25 @@
+{
+  "name": "reddit-in-valve-games",
+  "version": "1.0.0",
+  "description": "Automatically get text-only contents from reddit, bind them to keyboard keys, share them in the chat of a Valve game.",
+  "main": "main.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jee-El/reddit-in-valve-games.git"
+  },
+  "author": "Lhoussaine (Jee-El) Ghallou",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Jee-El/reddit-in-valve-games/issues"
+  },
+  "homepage": "https://github.com/Jee-El/reddit-in-valve-games#readme",
+  "devDependencies": {
+    "electron": "^20.1.3"
+  }
+}
