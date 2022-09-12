@@ -1,6 +1,6 @@
 # reddit-in-valve-games
 
-Automatically get text-only contents from reddit, bind them to keyboard keys in a Valve game, share them in the chat with the other players.
+A desktop application to automatically get text-only contents from reddit, bind them to keyboard keys in a Valve game, share them in the chat with the other players. The GUI is made with ElectronJS, while the scripts that handle everything else are written in Ruby.
 
 ## Note
 
@@ -20,35 +20,31 @@ This project was originally made to get only dad jokes from reddit, but I realiz
 
      - [Linux](#on-linux)
 
-  2. [Install Ruby](#install-ruby)
+  2. [Install NodeJS](#install-nodejs)
+
+  3. [Install Ruby](#install-ruby)
 
      - [On Windows](#on-windows-1)
 
      - [On Linux](#on-linux-1)
 
-  3. [Install Bundler](#install-bundler)
+  4. [Install Bundler](#install-bundler)
 
-  4. [Clone This Repository](#clone-this-repository)
+  5. [Clone This Repository](#clone-this-repository)
 
-  5. [Install Required Gems](#install-required-gems)
+  6. [Install Required Gems](#install-required-gems)
 
-  6. [Setup the JSON file](#setup-the-json-file)
-
-     - [For Windows](#for-windows)
-
-     - [For Linux](#for-linux)
+  7. [Run The GUI](#run-the-gui)
 
      - [Why Two Paths?](#why-two-paths)
 
-     - [For Windows and Linux](#for-windows-and-linux)
+  8. [Setup The dadjokes.cfg File](#setup-the-dadjokescfg-file)
 
-  7. [Setup The dadjokes.cfg File](#setup-the-dadjokescfg-file)
+  9. [Multiple Subreddits](#multiple-subreddits)
 
-  8. [Multiple Subreddits](#multiple-subreddits)
+  10. [Run The Script](#run-the-script)
 
-  9. [Run The Script](#run-the-script)
-
-  10. [Done!](#done)
+  11. [Done!](#done)
 
 - [IMPORTANT](#important)
 
@@ -92,6 +88,10 @@ Follow only the first step (Step 1) of this guide :
 
 https://www.theodinproject.com/lessons/foundations-setting-up-git
 
+## Install NodeJS
+
+Follow this guide : https://www.theodinproject.com/lessons/foundations-installing-node-js
+
 ## Install ruby
 
 ### On Windows
@@ -128,33 +128,31 @@ In your terminal or git bash :
 
 `bundle install`
 
-## Setup The JSON File
+## Run The GUI
 
-Navigate to the dad-jokes-in-valve-games directory if you aren't there already. You'll see a config.json file, where you'll setup your settings, open it in a text editor.
+Navigate to the `reddit-in-valve-games` directory if you aren't there already, and run `npm run start`.
 
-You'll see a bunch of entries, each with its own nested entries. The only ones you should be changing are : "currently_used_subreddit_name", "SUBREDDIT_NAME", "url", "paths", "keys".
+Then, select one of the available subreddits or add a new one.
 
-We'll be using the dadjokes entry and its nested entries in this guide.
+I'm going to select `dadjokes`.
 
-### For Windows
+- For Windows
 
 On windows, it's a bit simpler since I set it up for windows.
 
-1. In the "paths" entry, replace STEAMID in the first path with your own steam ID.
-
-(Ignore the double backslashes, one is there to escape the other, so they're necessary)
-
-`"C:\\Program Files (x86)\\Steam\\userdata\\STEAMID\\730\\local\\cfg\\"`
+1. In the First Path input field, replace STEAMID with your own steam ID.
 
 If you're setting this up for CSGO, leave the second path as it is.
 
 If you're not, change "Counter-Strike: Global Offensive" with the name of your game's folder. You can follow the path until you're in the "common" folder and you'll find your game's folder there.
 
-### For Linux
+- For Linux
 
-1. In the "paths" entry, replace the paths with these :
+1. First Path :
 
 `/home/HOSTNAME/.steam/steam/userdata/STEAMID/730/local/cfg/`
+
+2. Second Path :
 
 `/home/HOSTNAME/.steam/steam/steamapps/common/Counter-Strike Global Offensive/csgo/cfg/`
 
@@ -170,11 +168,11 @@ If you're not, change "Counter-Strike: Global Offensive" with the name of your g
 
 Normally, only one of the paths is necessary, but I've had issues before with the .cfg file, sometimes it worked on the first path, sometimes on the second, so just use both since there is no downside to that.
 
-If you want, you can experiment with this by removing one path and keeping the other, once you find the working one, use it alone.
+If you want, you can experiment with this by leaving one of the input fields for the paths empty and keeping the other. Once you find the working one, use it alone.
 
 ### For Windows and Linux
 
-Now go to the "keys" entry, the one inside the "dadjokes" entry, in the json file, and replace the values (f1, f2, ..., f6) with the keys you want the jokes to be bound to and save the changes.
+Now go to the `keys` input field, and enter the keys you want the jokes to be bound to and save the changes.
 
 I suggest you use an even amount of keys, e.g: 2, 4, 6, 8 etc..
 
@@ -190,41 +188,11 @@ If later you realize that it doesn't work, try : +exec dadjokes.cfg
 
 ## Multiple Subreddits
 
-Go to the config.json file, the last entry named "SUBREDDIT_NAME" is a template to use to set it up for other subreddits
-
-1. Copy-paste it
-
-2. Replace "SUBREDDIT_NAME" with the name of the subreddit you want (doesn't have to be accurate, it'll be used to name your .cfg file).
-
-3. Replace "SUBREDDIT*NAME" \_in the "url" entry* with the subreddit name (must be accurate).
-
-4. For the paths, just follow the steps that I already listed above.
-
-5. Replace the value of "currently_used_subreddit_name" with the name of the subreddit you want to use (whatever name you used to replace "SUBREDDIT_NAME")
-
-If this is too confusing, you have the template and the examples, they should help you set everything up!
+Click on `Add A Subreddit`, the steps are fairly similar to the ones above.
 
 # Run The Script
 
-There are two ways to use the script :
-
-- Run this command, in gitbash/terminal :
-
-`ruby <path>/main.rb`
-
-Replace the path with the path to the folder named _reddit-in-valve-games_, and don't include the greater-than/less-than symbols.
-
-If you can't find it, run this in gitbash/terminal :
-
-`bash -c "find / -type d -name 'reddit-in-valve-games' 2> /dev/null"`
-
-It should return a path ending with _reddit-in-valve-games_, that's the path you need.
-
-Wait until it's done. When it's done, it should return some ouput.
-
-- Make a shortcut with a shortcuts-configurating program
-
-After you look up how to make custom shortcuts, type the command above in the appropriate input field of the program you chose.
+Click on the `Run` button.
 
 # Done!
 
@@ -246,18 +214,10 @@ In this case, you just press F1 each time you run the script and you want to upd
 
 ## To stay up to date with the changes/fixes
 
-- Store a copy of your `config.json` file somewhere else.
-
-- In the terminal/git bash (same path mentioned [above](#done)) :
-
-`cd <path>`
-
-`git pull`
+Navigate to the `reddit-in-valve-games` directory/folder, then run `git pull`.
 
 ## Some Warnings
 
-- DO NOT make two entries with the same "SUBREDDIT_NAME" value.
+- For the subreddit name input field, don't enter the name of a .cfg file that's already in either/both paths. For example, it's common to have a file called config.cfg or autoexec.cfg, so don't enter `config` or `autoexec`, it'll delete all the contents inside them.
 
-- DO NOT replace "SUBREDDIT_NAME" with the name of a .cfg file that's already in either/both paths. For example, it's common to have a file called config.cfg or autoexec.cfg, so don't replace "SUBREDDIT_NAME" with "config" or "autoexec", it'll delete all the contents inside them.
-
-- It's better not to change any other settings in the .json file unless you know what you are doing. Currently the script will work, meaning you can run the command, a maximum of 30 times a day (since the last time you ran the script for the first time), sometimes less, this is because sending too many requests to reddit sounds like a bad idea, but yeah you can change the "maximum_requests" value to a higher value if you want to be able to use it more than 30 times. The good thing is that the hot page of subreddits isn't updated often enough for you to use the shortcut many times for a meaningful reason, so you'll just see the same contents bound to the same keys.
+- Currently the script will work, meaning you can click on the `Run` button, a maximum of 30 times a day (since the last time you ran the script for the first time), sometimes less, this is because sending too many requests to reddit sounds like a bad idea. The good thing is that the hot pages of subreddits aren't updated often enough for you to run the script many times for a meaningful reason, so you'll just see the same contents bound to the same keys.
