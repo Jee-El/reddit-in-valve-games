@@ -25,8 +25,8 @@ class ContentsParser
         i = 0
         j = 0
         loop do
-          if (parsed_content[i] + " " + content_part[j]).length <= 255
-            parsed_content[i] << " " << content_part[j]
+          if "#{parsed_content[i]} #{content_part[j]}".length <= 255
+            parsed_content[i] << ' ' << content_part[j]
             j += 1
           else
             i += 1

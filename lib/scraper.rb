@@ -21,14 +21,14 @@ class Scraper
   def start
     scrape
     update_requests
-    [settings_path, @settings, @subreddit_name, @contents]
+    [settings_path, @settings, @subreddit_name, p(@contents)]
   end
 
   private
 
   def settings_path
-    cloned_repo_path = `bash -c "find / -type d -name 'dad-jokes-in-valve-games' 2> /dev/null"`
-    cloned_repo_path.chomp + (File::ALT_SEPARATOR || File::SEPARATOR) + 'config.json'
+    cloned_repo_path = `bash -c "find ~ -type d -name 'reddit-in-valve-games' 2> /dev/null"`.split("\n")[1]
+    "#{cloned_repo_path}/config.json"
   end
 
   def scrape
@@ -44,8 +44,9 @@ class Scraper
           title = post[1]
           4.times { title = title.children[0] }
           body = post[2]
-          4.times { body = body.children[0] }
-          @contents << [title.text, body.text]
+          3.times { body = body.children[0] }
+          body = body.children.to_a.map(&:text)
+          @contents << [title.text, body.join(' ')]
         end
       rescue NoMethodError
         sleep 2
@@ -68,11 +69,9 @@ class Scraper
 
   def reset_requests
     @settings[@subreddit_name]['total_requests'] = 0
-    @settings[@subreddit_name]['has_to_reset_call_date'] = true
   end
 
   def reset_call_date
     @settings[@subreddit_name]['call_date'] = Time.new
-    @settings[@subreddit_name]['has_to_reset_call_date'] = false
   end
 end

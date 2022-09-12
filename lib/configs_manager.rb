@@ -34,7 +34,7 @@ class ConfigsManager
 
   def setup_paths
     paths = @settings[@subreddit_name]['paths']
-    paths.map { |path| path + @subreddit_name + '.cfg' }
+    paths.map { |path| "#{path}#{@subreddit_name}.cfg" }
   end
 
   def update_json!
