@@ -21,7 +21,7 @@ class Scraper
   def start
     scrape
     update_requests
-    [settings_path, @settings, @subreddit_name, p(@contents)]
+    [settings_path, @settings, @subreddit_name, @contents]
   end
 
   private
