@@ -18,11 +18,14 @@ function getClonedRepoPath() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  const mainContainer = document.querySelector('.main-container');
   const firstPathInput = document.querySelector('#first-path');
   const secondPathInput = document.querySelector('#second-path');
   const pathsInput = [firstPathInput, secondPathInput];
   pathsInput.forEach((pathInput) => {
     pathInput.addEventListener('change', (e) => {
+      if (e.target.value == '') return;
+
       separator = e.target.value.includes('/') ? '/' : '\\';
       e.target.value = e.target.value.endsWith(separator)
         ? e.target.value
@@ -31,8 +34,12 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   const keysInput = document.querySelector('#keys');
   keysInput.addEventListener('change', (e) => {
-    e.target.value = e.target.value.replace(' ', '').split(',').join(', ');
+    e.target.value = e.target.value.replace(/\s/g, '').split(',').join(', ');
   });
+  const modal = document.querySelector('.modal');
+  const p = document.querySelector('.output');
+  const okBtn = document.querySelector('.ok');
+  okBtn.addEventListener('click', () => hideOutput(mainContainer, modal, p));
 
   if (window.location.href.includes('index.html')) {
     var subredditsSelect = document.querySelector('select');
@@ -41,32 +48,26 @@ document.addEventListener('DOMContentLoaded', () => {
     );
     const saveBtn = document.querySelector('#save-btn');
     saveBtn.addEventListener('click', () =>
-      getUpdatedConfig(subredditsSelect, pathsInput, keysInput)
+      saveSetup(subredditsSelect, pathsInput, keysInput)
     );
     const runBtn = document.querySelector('#run-btn');
     runBtn.addEventListener('click', () => {
-      getUpdatedConfig(subredditsSelect, pathsInput, keysInput);
-      console
-        .log(
-          execSync(`bash -c "bundle exec ruby ${clonedRepoPath}/lib/main.rb"`)
-        )
-        .toString();
+      saveSetup(subredditsSelect, pathsInput, keysInput);
+      displayOutput(runRubyScript(), mainContainer, modal, p);
     });
     fillUpTheDefaultForm(subredditsSelect, pathsInput, keysInput);
   } else {
-    let subredditName = document.querySelector('#subreddit-name').value;
-    let subredditLink = document.querySelector('#subreddit-link').value;
+    let subredditNameInput = document.querySelector('#subreddit-name');
+    let subredditLinkInput = document.querySelector('#subreddit-link');
     const addBtn = document.querySelector('#add-btn');
-    let paths = pathsInput.map((pathInput) => pathInput.value);
-    let keys = keysInput.value.replace(' ', '').split(',');
     addBtn.addEventListener('click', () => {
-      let subreddit = {
-        subredditName: subredditName,
-        subredditLink: subredditLink,
-        paths: paths,
-        keys: keys,
-      };
-      ipcRenderer.send('addSubreddit', subreddit);
+      addSubreddit(
+        subredditNameInput,
+        subredditLinkInput,
+        pathsInput,
+        keysInput
+      );
+      modal.style.display = 'flex';
     });
   }
 });
@@ -103,7 +104,7 @@ function fillUpKeys(keysInput) {
   keysInput.value = config[subredditName].keys.join(', ') || '';
 }
 
-function getUpdatedConfig(subredditsSelect, pathsInput, keysInput) {
+function saveSetup(subredditsSelect, pathsInput, keysInput) {
   const subredditName = Array.from(document.querySelectorAll('option')).find(
     (option) => {
       return subredditsSelect.value === option.value;
@@ -114,7 +115,7 @@ function getUpdatedConfig(subredditsSelect, pathsInput, keysInput) {
     .map((pathInput) => pathInput.value)
     .filter((path) => path !== '');
 
-  let keys = keysInput.value.replace(' ', '').split(',');
+  let keys = keysInput.value.replace(/\s/g, '').split(',');
 
   let newConfig = {
     subredditName: subredditName,
@@ -143,4 +144,43 @@ function updatePaths(subredditName, pathsInput) {
 
 function updateKeys(subredditName, keysInput) {
   keysInput.value = config[subredditName].keys.join(', ');
+}
+
+function runRubyScript() {
+  return execSync(
+    `bash -c "bundle exec ruby ${clonedRepoPath}/lib/main.rb"`
+  ).toString();
+}
+
+function displayOutput(output, mainContainer, modal, p) {
+  p.textContent = output;
+  modal.style.display = 'flex';
+  mainContainer.classList.add('blurred');
+}
+
+function hideOutput(mainContainer, modal, p) {
+  mainContainer.classList.remove('blurred');
+  modal.style.display = 'none';
+  p.textContent = '';
+}
+
+function addSubreddit(
+  subredditNameInput,
+  subredditLinkInput,
+  pathsInput,
+  keysInput
+) {
+  let subredditName = subredditNameInput.value;
+  let subredditLink = subredditLinkInput.value;
+  let paths = pathsInput
+    .map((pathInput) => pathInput.value)
+    .filter((path) => path !== '');
+  let keys = keysInput.value.replace(/\s/g, '').split(',');
+  let subreddit = {
+    subredditName: subredditName,
+    subredditLink: subredditLink,
+    paths: paths,
+    keys: keys,
+  };
+  ipcRenderer.send('addSubreddit', subreddit);
 }

@@ -8,6 +8,13 @@
     <title>Reddit In Valve Games</title>
   </head>
   <body>
+    <div class="modal">
+      <p class="output">
+        Your subreddit has been added!<br />Please return back to the setup page
+        to select it.
+      </p>
+      <button type="button" class="ok">OK</button>
+    </div>
     <div class="main-container">
       <div class="interface">
         <h1>Setup</h1>
@@ -16,8 +23,12 @@
           <input id="subreddit-name" />
         </div>
         <div>
-          <label for="subreddit_link"><span>Subreddit Link</span></label>
-          <input id="subreddit_link" type="text" />
+          <label for="subreddit-link"><span>Subreddit Link</span></label>
+          <input
+            id="subreddit-link"
+            type="text"
+            value="https://www.reddit.com/r/"
+          />
         </div>
         <div>
           <label for="first-path"
@@ -37,8 +48,8 @@
         </div>
 
         <button id="add-btn" type="reset">Add</button>
-        <a href="./index.html">Back</a>
       </div>
+      <a href="./index.html">Back</a>
     </div>
   </body>
 </html>

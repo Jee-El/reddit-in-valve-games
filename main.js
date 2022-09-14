@@ -35,9 +35,9 @@ const createWindow = () => {
 
 ipcMain.on('saveSetup', (e, newConfig) => {
   let subredditName = newConfig.subredditName;
+  delete newConfig.subredditName;
   config.currently_used_subreddit_name = subredditName;
   for (let key in newConfig) {
-    if (key == 'subredditName') continue;
     config[subredditName][key] = newConfig[key];
   }
   fs.writeFileSync(configPath, JSON.stringify(config));
