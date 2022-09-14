@@ -11,10 +11,12 @@ class ConfigsManager
   def update
     return no_contents_returned if @contents.nil?
 
-    new_contents_returned
     update_cfgs!
     update_json!
+    new_contents_returned
   end
+
+  private
 
   def no_contents_returned
     puts 'No contents were returned.'
