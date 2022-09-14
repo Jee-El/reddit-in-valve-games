@@ -1,6 +1,7 @@
 const { ipcRenderer } = require('electron');
 const fs = require('fs');
 const { execSync } = require('child_process');
+const path = require('path');
 
 let clonedRepoPath = getClonedRepoPath()
   .toString()
@@ -19,6 +20,15 @@ function getClonedRepoPath() {
 document.addEventListener('DOMContentLoaded', () => {
   const firstPathInput = document.querySelector('#first-path');
   const secondPathInput = document.querySelector('#second-path');
+  const pathsInput = [firstPathInput, secondPathInput];
+  pathsInput.forEach((pathInput) => {
+    pathInput.addEventListener('change', (e) => {
+      separator = e.target.value.includes('/') ? '/' : '\\';
+      e.target.value = e.target.value.endsWith(separator)
+        ? e.target.value
+        : e.target.value + separator;
+    });
+  });
   const keysInput = document.querySelector('#keys');
   keysInput.addEventListener('change', (e) => {
     e.target.value = e.target.value.replace(' ', '').split(',').join(', ');
@@ -27,57 +37,43 @@ document.addEventListener('DOMContentLoaded', () => {
   if (window.location.href.includes('index.html')) {
     var subredditsSelect = document.querySelector('select');
     subredditsSelect.addEventListener('input', () =>
-      updateInput(subredditsSelect, firstPathInput, secondPathInput, keysInput)
+      updateInput(subredditsSelect, pathsInput, keysInput)
     );
     const saveBtn = document.querySelector('#save-btn');
     saveBtn.addEventListener('click', () =>
-      getUpdatedConfig(
-        subredditsSelect,
-        firstPathInput,
-        secondPathInput,
-        keysInput
-      )
+      getUpdatedConfig(subredditsSelect, pathsInput, keysInput)
     );
     const runBtn = document.querySelector('#run-btn');
     runBtn.addEventListener('click', () => {
-      getUpdatedConfig(
-        subredditsSelect,
-        firstPathInput,
-        secondPathInput,
-        keysInput
-      );
-      execSync(`bash -c "bundle exec ruby ${clonedRepoPath}/lib/main.rb"`);
+      getUpdatedConfig(subredditsSelect, pathsInput, keysInput);
+      console
+        .log(
+          execSync(`bash -c "bundle exec ruby ${clonedRepoPath}/lib/main.rb"`)
+        )
+        .toString();
     });
-    fillUpTheDefaultForm(
-      subredditsSelect,
-      firstPathInput,
-      secondPathInput,
-      keysInput
-    );
+    fillUpTheDefaultForm(subredditsSelect, pathsInput, keysInput);
   } else {
-    var subredditName = document.querySelector('#subreddit-name');
-    var subredditLink = document.querySelector('#subreddit-link');
+    let subredditName = document.querySelector('#subreddit-name').value;
+    let subredditLink = document.querySelector('#subreddit-link').value;
     const addBtn = document.querySelector('#add-btn');
+    let paths = pathsInput.map((pathInput) => pathInput.value);
+    let keys = keysInput.value.replace(' ', '').split(',');
     addBtn.addEventListener('click', () => {
       let subreddit = {
         subredditName: subredditName,
         subredditLink: subredditLink,
-        paths: [firstPathInput, secondPathInput],
-        keys: keysInput,
+        paths: paths,
+        keys: keys,
       };
       ipcRenderer.send('addSubreddit', subreddit);
     });
   }
 });
 
-function fillUpTheDefaultForm(
-  subredditsSelect,
-  firstPathInput,
-  secondPathInput,
-  keysInput
-) {
+function fillUpTheDefaultForm(subredditsSelect, pathsInput, keysInput) {
   createOptions(subredditsSelect);
-  fillUpPaths(firstPathInput, secondPathInput);
+  fillUpPaths(pathsInput);
   fillUpKeys(keysInput);
 }
 
@@ -95,67 +91,56 @@ function createOptions(subredditsSelect) {
   );
 }
 
-function fillUpPaths(firstPathInput, secondPathInput) {
+function fillUpPaths(pathsInput) {
   let subredditName = config.currently_used_subreddit_name;
-  firstPathInput.value = config[subredditName].paths[0];
-  secondPathInput.value = config[subredditName].paths[1];
+  for (let i = 0; i < pathsInput.length; i++) {
+    pathsInput[i].value = config[subredditName].paths[i] || '';
+  }
 }
 
 function fillUpKeys(keysInput) {
   let subredditName = config.currently_used_subreddit_name;
-  keysInput.value = config[subredditName].keys.join(', ');
+  keysInput.value = config[subredditName].keys.join(', ') || '';
 }
 
-function getUpdatedConfig(
-  subredditsSelect,
-  firstPathInput,
-  secondPathInput,
-  keysInput
-) {
+function getUpdatedConfig(subredditsSelect, pathsInput, keysInput) {
   const subredditName = Array.from(document.querySelectorAll('option')).find(
     (option) => {
       return subredditsSelect.value === option.value;
     }
   ).textContent;
-  let firstPath = firstPathInput.value;
-  let secondPath = secondPathInput.value;
+
+  let paths = pathsInput
+    .map((pathInput) => pathInput.value)
+    .filter((path) => path !== '');
+
   let keys = keysInput.value.replace(' ', '').split(',');
 
   let newConfig = {
     subredditName: subredditName,
-    paths: [firstPath, secondPath].filter((path) => path !== ''),
+    paths: paths,
     keys: keys,
   };
   ipcRenderer.send('saveSetup', newConfig);
 }
 
-function updateInput(
-  subredditsSelect,
-  firstPathInput,
-  secondPathInput,
-  keysInput
-) {
+function updateInput(subredditsSelect, pathsInput, keysInput) {
   const subredditName = Array.from(document.querySelectorAll('option')).find(
     (option) => {
       return subredditsSelect.value === option.value;
     }
   ).textContent;
-  updatePaths(subredditName, firstPathInput, secondPathInput);
+  updatePaths(subredditName, pathsInput);
   updateKeys(subredditName, keysInput);
 }
 
-function updatePaths(subredditName, firstPathInput, secondPathInput) {
+function updatePaths(subredditName, pathsInput) {
   const bothPaths = config[subredditName].paths;
-  firstPathInput.value = bothPaths[0];
-  secondPathInput.value = bothPaths[1];
+  for (let i = 0; i < pathsInput.length; i++) {
+    pathsInput[i].value = bothPaths[i];
+  }
 }
 
 function updateKeys(subredditName, keysInput) {
   keysInput.value = config[subredditName].keys.join(', ');
-}
-
-function resetInput() {
-  document.querySelectorAll('input').forEach((input) => {
-    input.value = '';
-  });
 }
