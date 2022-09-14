@@ -2,7 +2,10 @@ const { ipcRenderer } = require('electron');
 const fs = require('fs');
 const { execSync } = require('child_process');
 
-let clonedRepoPath = getClonedRepoPath().toString().split('\n')[1];
+let clonedRepoPath = getClonedRepoPath()
+  .toString()
+  .split('\n')
+  .find((path) => !path.includes('.config'));
 let configPath = clonedRepoPath + '/config.json';
 let unparsedConfig = fs.readFileSync(configPath);
 let config = JSON.parse(unparsedConfig);

@@ -27,7 +27,10 @@ class Scraper
   private
 
   def settings_path
-    cloned_repo_path = `bash -c "find ~ -type d -name 'reddit-in-valve-games' 2> /dev/null"`.split("\n")[1]
+    cloned_repo_possible_paths = `bash -c "find ~ -type d -name 'reddit-in-valve-games' 2> /dev/null"`.split("\n")
+    cloned_repo_path = cloned_repo_possible_paths.find do |cloned_repo_possible_path|
+      !cloned_repo_possible_path.include?('.config')
+    end
     "#{cloned_repo_path}/config.json"
   end
 
