@@ -21,12 +21,12 @@ class ConfigsManager
   def no_contents_returned
     puts 'No contents were returned.'
     puts "Your #{@subreddit_name}.cfg file should have the same contents as before"
-    puts 'Run the script again'
+    puts 'Run the script again.'
   end
 
   def new_contents_returned
     puts "New contents were returned, your #{@subreddit_name}.cfg file was updated."
-    puts 'They might be the same contents as before, try again after a few hours if that\'s the case'
+    puts 'They might be the same contents as before, try again after a few hours if that\'s the case.'
   end
 
   def update_cfgs!
