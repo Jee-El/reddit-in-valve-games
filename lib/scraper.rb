@@ -37,7 +37,7 @@ class Scraper
   def scrape
     while @attempts < 5 && @total_requests < @maximum_requests && @contents.empty?
       begin
-        unparsed_page = URI.open(@subreddit_url)
+        unparsed_page = URI.parse(@subreddit_url).open
         parsed_page = Nokogiri::HTML(unparsed_page)
         all_posts = parsed_page.css('.rpBJOHq2PR60pnwJlUyP0 > div')
         all_posts.each_with_index do |post, index|
