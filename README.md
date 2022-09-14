@@ -36,7 +36,13 @@ This project was originally made to get only dad jokes from reddit, but I realiz
 
   7. [Run The GUI](#run-the-gui)
 
+     - [The First Path](#the-first-path)
+
+     - [The Second Path](#the-second-path)
+
      - [Why Two Paths?](#why-two-paths)
+
+     - [The Keys](#the-keys)
 
   8. [Setup The dadjokes.cfg File](#setup-the-dadjokescfg-file)
 
@@ -148,33 +154,51 @@ Select one of the available subreddits or add a new one.
 
 I'm going to select `dadjokes`.
 
+### The First Path
+
 - For Windows
 
-On windows, it's a bit simpler since I set it up for windows.
+It looks like this _for all valve games_:
 
-1. In the First Path input field, replace STEAMID with your own steam ID.
+`C:\Program Files (x86)\Steam\userdata\STEAMID\730\local\cfg`
 
-If you're setting this up for CSGO, leave the second path as it is.
-
-If you're not, change "Counter-Strike: Global Offensive" with the name of your game's folder. You can follow the path until you're in the "common" folder and you'll find your game's folder there.
+Replace STEAMID with yours.
 
 - For Linux
 
-1. First Path :
+It looks like this _for all valve games_:
 
-`/home/HOSTNAME/.steam/steam/userdata/STEAMID/730/local/cfg/`
+`/home/HOSTNAME/.steam/steam/userdata/STEAMID/730/local/cfg`
 
-2. Second Path :
+Replace STEAMID with yours.
 
-`/home/HOSTNAME/.steam/steam/steamapps/common/Counter-Strike Global Offensive/csgo/cfg/`
+Make sure to use `/home/HOSTNAME` rather than `~`.
 
-Replace STEAMID with your steam ID, HOSTNAME with your hostname (run `whoami` in the terminal to get it).
+### The Second Path
 
-If you didn't copy-paste the paths, make sure that both of them start with /home/HOSTNAME and not ~/.
+- For Windows
+
+It looks like this _for CSGO_ :
+
+`C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\csgo\cfg`
 
 If you're setting this up for CSGO, leave the second path as it is.
 
 If you're not, change "Counter-Strike: Global Offensive" with the name of your game's folder. You can follow the path until you're in the "common" folder and you'll find your game's folder there.
+
+- For Windows & Linux
+
+The second path looks fairly similar for other valve games too.
+
+To get the path for other games :
+
+- Navigate to the common folder to find the other games' folders & and open the folder you want.
+
+- You'll find another folder with same name (or similar), open it.
+
+- Open the folder called `cfg`.
+
+- Copy the path that led you there.
 
 ### Why Two Paths?
 
@@ -182,11 +206,11 @@ Normally, only one of the paths is necessary, but I've had issues before with th
 
 If you want, you can experiment with this by leaving one of the input fields for the paths empty and keeping the other. Once you find the working one, use it alone.
 
-### For Windows and Linux
+### The Keys
 
 Now go to the `keys` input field, and enter the keys you want the jokes to be bound to and save the changes.
 
-I suggest you use an even amount of keys, e.g: 2, 4, 6, 8 etc..
+I suggest you use an even amount of keys, e.g: 2, 4, 6, 8 etc.
 
 ## Setup The dadjokes.cfg File
 
