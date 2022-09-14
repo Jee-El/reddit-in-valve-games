@@ -90,7 +90,7 @@ https://www.theodinproject.com/lessons/foundations-setting-up-git
 
 ## Install NodeJS
 
-Follow this guide : https://www.theodinproject.com/lessons/foundations-installing-node-js
+Follow this guide (Linux) : https://www.theodinproject.com/lessons/foundations-installing-node-js
 
 ## Install ruby
 
@@ -124,15 +124,27 @@ In your terminal or git bash :
 
 `cd reddit-in-valve-games`
 
+_I'm assuming you are in the `reddit-in-valve-games` directory for the rest of this guide._
+
 ## Install Required Gems
 
 `bundle install`
 
+## Install ElectronJS
+
+`npm install electron --save-dev`
+
 ## Run The GUI
 
-Navigate to the `reddit-in-valve-games` directory if you aren't there already, and run `npm run start`.
+Run `npm run start`.
 
-Then, select one of the available subreddits or add a new one.
+At this point, if you are familiar with setting an `autoexec.cfg` file, just add `+exec dadjokes` or `+exec dadjokes.cfg` in the launch options of the game you want to use this on (without making the file, & replace `dadjokes` with whatever the subreddit's name is or with whatever you named it)
+
+Then you can jump straight to the [IMPORTANT](#important) section.
+
+Otherwise, follow these steps :
+
+Select one of the available subreddits or add a new one.
 
 I'm going to select `dadjokes`.
 
@@ -158,7 +170,7 @@ If you're not, change "Counter-Strike: Global Offensive" with the name of your g
 
 Replace STEAMID with your steam ID, HOSTNAME with your hostname (run `whoami` in the terminal to get it).
 
-If you didn't copy-paste the paths, make sure that both of them start with /home/HOSTNAME and not ~/, and that they end with a forward slash so it works as it should.
+If you didn't copy-paste the paths, make sure that both of them start with /home/HOSTNAME and not ~/.
 
 If you're setting this up for CSGO, leave the second path as it is.
 
@@ -214,7 +226,9 @@ In this case, you just press F1 each time you run the script and you want to upd
 
 ## To stay up to date with the changes/fixes
 
-Navigate to the `reddit-in-valve-games` directory/folder, then run `git pull`.
+- Save a copy of your config.json outside the `reddit-in-valve-games` directory.
+
+- Navigate to the `reddit-in-valve-games` directory/folder, then run `git pull`.
 
 ## Some Warnings
 
