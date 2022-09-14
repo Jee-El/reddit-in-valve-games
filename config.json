@@ -2,10 +2,7 @@
   "currently_used_subreddit_name": "dadjokes",
   "dadjokes": {
     "url": "https://www.reddit.com/r/dadjokes/",
-    "paths": [
-      "C:\\Program Files (x86)\\Steam\\userdata\\STEAMID\\730\\local\\cfg\\",
-      "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike: Global Offensive\\csgo\\cfg\\"
-    ],
+    "paths": [],
     "keys": ["f1", "f2", "f3", "f4", "f5", "f6"],
     "call_date": null,
     "total_requests": 0,
@@ -13,10 +10,7 @@
   },
   "jokes": {
     "url": "https://www.reddit.com/r/Jokes/",
-    "paths": [
-      "C:\\Program Files (x86)\\Steam\\userdata\\STEAMID\\730\\local\\cfg\\",
-      "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike: Global Offensive\\csgo\\cfg\\"
-    ],
+    "paths": [],
     "keys": ["f1", "f2", "f3", "f4", "f5", "f6"],
     "call_date": null,
     "total_requests": 0,
@@ -24,10 +18,7 @@
   },
   "two_sentence_horror": {
     "url": "https://www.reddit.com/r/TwoSentenceHorror/",
-    "paths": [
-      "C:\\Program Files (x86)\\Steam\\userdata\\STEAMID\\730\\local\\cfg\\",
-      "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike: Global Offensive\\csgo\\cfg\\"
-    ],
+    "paths": [],
     "keys": ["f1", "f2", "f3", "f4", "f5", "f6"],
     "call_date": null,
     "total_requests": 0,
