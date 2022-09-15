@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 require_relative './scraper'
-require_relative './contents_parser'
-require_relative './configs_manager'
+require_relative './parser'
+require_relative './files_manager'
 
 scraper = Scraper.new
-contents_parser = ContentsParser.new(*scraper.start)
-configs_manager = ConfigsManager.new(*contents_parser.parse)
-configs_manager.update
+parser = Parser.new(*scraper.start)
+files_manager = FilesManager.new(*parser.parse)
+files_manager.update
