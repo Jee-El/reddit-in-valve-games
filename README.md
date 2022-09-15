@@ -33,8 +33,10 @@ This project was originally made to get only dad jokes from reddit, but I realiz
   5. [Clone This Repository](#clone-this-repository)
 
   6. [Install Required Gems](#install-required-gems)
+  
+  7. [Install ElectronJS](#install-electronjs)
 
-  7. [Run The GUI](#run-the-gui)
+  8. [Run The GUI](#run-the-gui)
 
      - [The First Path](#the-first-path)
 
@@ -44,13 +46,13 @@ This project was originally made to get only dad jokes from reddit, but I realiz
 
      - [The Keys](#the-keys)
 
-  8. [Setup The dadjokes.cfg File](#setup-the-dadjokescfg-file)
+  9. [Setup The dadjokes.cfg File](#setup-the-dadjokescfg-file)
 
-  9. [Multiple Subreddits](#multiple-subreddits)
+  10. [Multiple Subreddits](#multiple-subreddits)
 
-  10. [Run The Script](#run-the-script)
+  11. [Run The Script](#run-the-script)
 
-  11. [Done!](#done)
+  12. [Done!](#done)
 
 - [IMPORTANT](#important)
 
