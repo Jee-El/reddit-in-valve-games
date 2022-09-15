@@ -1,6 +1,7 @@
 require 'unicode/emoji'
 
-class ContentsParser
+# Parses the reddit posts to be shareable on csgo
+class Parser
   def initialize(settings_path, settings, subreddit_name, contents)
     @settings_path = settings_path
     @settings = settings
