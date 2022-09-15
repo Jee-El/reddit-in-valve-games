@@ -1,6 +1,8 @@
 require 'json'
 
-class ConfigsManager
+# Deals with uptading config.json
+# & creating/updating the cfg files
+class FilesManager
   def initialize(settings_path, settings, subreddit_name, contents)
     @settings_path = settings_path
     @settings = settings
@@ -9,10 +11,11 @@ class ConfigsManager
   end
 
   def update
+    update_json!
+
     return no_contents_returned if @contents.nil?
 
     update_cfgs!
-    update_json!
     new_contents_returned
   end
 
