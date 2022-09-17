@@ -85,7 +85,7 @@ class Scraper
   def body(post)
     body = post[2]
     3.times { body = body.children[0] }
-    body.children.to_a.map(&:text).join(' ')
+    body.children.to_a.map(&:text)
   end
 
   def update_requests
