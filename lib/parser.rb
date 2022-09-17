@@ -19,25 +19,29 @@ class Parser
 
   def parse_for_chat!
     @contents.map! do |content|
-      content.map do |content_part|
-        # content_part is either the title or the body
-        content_part = content_part.split(' ')
-        parsed_content = ['']
-        i = 0
-        j = 0
-        loop do
-          if "#{parsed_content[i]} #{content_part[j]}".length <= 255
-            parsed_content[i] << ' ' << content_part[j]
-            j += 1
-          else
-            i += 1
-            parsed_content[i] = ''
-          end
-          break if j == content_part.length
-        end
-        parsed_content
-      end
+      title = parse_title(content[0])
+      body = parse_body(content[1])
+      [title, body]
     end
+  end
+
+  def parse_title(title)
+    parsing_algorithm(title)
+  end
+
+  def parse_body(body)
+    body.map { |paragraph| parsing_algorithm(paragraph) }
+  end
+
+  def parsing_algorithm(content_part)
+    return content_part if content_part.length <= 255
+
+    parsed_content_part = []
+    while i = content_part.rindex(' ', 255)
+      parsed_content_part << content_part[0..i]
+      content_part = content_part[i + 1..]
+    end
+    parsed_content_part
   end
 
   def bind_to_keys
