@@ -72,7 +72,7 @@ This project was originally made to get only dad jokes from reddit, but I realiz
 
 - If you face any issues, contact me on reddit /u/jee-el, or open an issue on this repository.
 
-- The guides provided are just a few out of plenty, so feel free to use any other guide(s) to get git, ruby, and bundler installed.
+- The guides provided are just a few out of plenty, so feel free to use any other guide(s) to get Git, Ruby, Bundler & NodeJS installed.
 
 - Also, the linux guides are mainly for Ubuntu and its official flavors, but it should be easy to find guides for other distributions.
 
