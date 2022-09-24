@@ -178,17 +178,15 @@ Make sure to use `/home/HOSTNAME` rather than `~`.
 
 ### The Second Path
 
-- For Windows
-
 It looks like this _for CSGO_ :
 
-`C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\csgo\cfg`
+  - On Windows
 
-If you're setting this up for CSGO, leave the second path as it is.
+  `C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\csgo\cfg`
+  
+  - On Linux
 
-If you're not, change "Counter-Strike: Global Offensive" with the name of your game's folder. You can follow the path until you're in the "common" folder and you'll find your game's folder there.
-
-- For Windows & Linux
+  `/home/HOSTNAME/.steam/steam/steamapps/common/Counter-Strike Global Offensive/csgo/cfg`
 
 The second path looks fairly similar for other valve games too.
 
