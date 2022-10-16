@@ -6,6 +6,8 @@ A desktop application to automatically get text-only contents from reddit, bind 
 
 This project was originally made to get only dad jokes from reddit, but I realized I could make it work with other text-only subreddits so I went with that!
 
+*I've tested the project & installations guides **only** on Linux.
+
 # Contents
 
 - [Why?](#why)
@@ -21,12 +23,16 @@ This project was originally made to get only dad jokes from reddit, but I realiz
      - [Linux](#on-linux)
 
   2. [Install NodeJS](#install-nodejs)
+     
+     - [Windows](#on-windows-1)
+     
+     - [Linux](#on-linux-1)
 
   3. [Install Ruby](#install-ruby)
 
-     - [On Windows](#on-windows-1)
+     - [On Windows](#on-windows-2)
 
-     - [On Linux](#on-linux-1)
+     - [On Linux](#on-linux-2)
 
   4. [Install Bundler](#install-bundler)
 
@@ -98,7 +104,13 @@ https://www.theodinproject.com/lessons/foundations-setting-up-git
 
 ## Install NodeJS
 
-Follow this guide (Linux) : https://www.theodinproject.com/lessons/foundations-installing-node-js
+### On Windows
+
+https://learn.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-windows
+
+### On Linux
+
+https://www.theodinproject.com/lessons/foundations-installing-node-js
 
 ## Install ruby
 
