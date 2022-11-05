@@ -95,13 +95,13 @@ function createOptions(subredditsSelect) {
 function fillUpPaths(pathsInput) {
   let subredditName = config.currently_used_subreddit_name;
   for (let i = 0; i < pathsInput.length; i++) {
-    pathsInput[i].value = config[subredditName].paths[i] || '';
+    pathsInput[i].value = config[subredditName].paths[i];
   }
 }
 
 function fillUpKeys(keysInput) {
   let subredditName = config.currently_used_subreddit_name;
-  keysInput.value = config[subredditName].keys.join(', ') || '';
+  keysInput.value = config[subredditName].keys.join(', ');
 }
 
 function saveSetup(subredditsSelect, pathsInput, keysInput) {

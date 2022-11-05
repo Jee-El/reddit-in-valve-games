@@ -2,7 +2,7 @@
   "name": "reddit-in-valve-games",
   "version": "1.0.0",
   "description": "A desktop application to automatically get text-only contents from reddit, bind them to keyboard keys in a Valve game, share them in the chat with the other players.",
-  "main": "main.js",
+  "main": "./app/main.js",
   "directories": {
     "lib": "lib"
   },

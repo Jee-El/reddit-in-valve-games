@@ -27,10 +27,10 @@ const createWindow = () => {
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: true,
-      preload: path.resolve(clonedRepoPath + '/preload.js'),
+      preload: path.resolve(clonedRepoPath + '/app/preload.js'),
     },
   });
-  win.loadFile(clonedRepoPath + '/index.html');
+  win.loadFile(clonedRepoPath + '/app/index.html');
 };
 
 ipcMain.on('saveSetup', (e, newConfig) => {
