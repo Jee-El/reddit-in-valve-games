@@ -2,24 +2,24 @@
   "currently_used_subreddit_name": "dadjokes",
   "dadjokes": {
     "url": "https://www.reddit.com/r/dadjokes/",
-    "paths": [],
-    "keys": ["f1", "f2", "f3", "f4", "f5", "f6"],
+    "paths": ["", ""],
+    "keys": [""],
     "call_date": null,
     "total_requests": 0,
     "maximum_requests": 30
   },
   "jokes": {
     "url": "https://www.reddit.com/r/Jokes/",
-    "paths": [],
-    "keys": ["f1", "f2", "f3", "f4", "f5", "f6"],
+    "paths": ["", ""],
+    "keys": [""],
     "call_date": null,
     "total_requests": 0,
     "maximum_requests": 30
   },
   "two_sentence_horror": {
     "url": "https://www.reddit.com/r/TwoSentenceHorror/",
-    "paths": [],
-    "keys": ["f1", "f2", "f3", "f4", "f5", "f6"],
+    "paths": ["", ""],
+    "keys": [""],
     "call_date": null,
     "total_requests": 0,
     "maximum_requests": 30
